@@ -93,7 +93,7 @@
 <meta property="og:image" content="http://web.mit.edu/6.031/www/sp18/classes/11-abstraction-functions-rep-invariants/figures/charset-af-ri.svg">
 <meta property="og:image" content="http://web.mit.edu/6.031/www/sp18/classes/11-abstraction-functions-rep-invariants/figures/charset-norepeats.svg">
 <meta property="og:image" content="http://web.mit.edu/6.031/www/sp18/classes/11-abstraction-functions-rep-invariants/figures/adt-firewall.svg">
-<meta property="og:updated_time" content="2019-03-22T02:32:47.033Z">
+<meta property="og:updated_time" content="2019-03-22T14:15:38.090Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="软件构造笔记">
 <meta name="twitter:description" content="阅读材料来自于MIT的Software Construction课程 Reading 11: Abstraction Functions &amp;amp; Rep Invariants.要点如下:·invariant·representation exposure·abstraction functions·representation invariantsThe rep invariant wil">
@@ -332,7 +332,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  4
+                  5
                 </span>
               
             </div>
@@ -404,7 +404,7 @@ return list;
 <blockquote>
 <p>not only choosing the two spaces… but also deciding which rep values are legal, and how to interpret them as abstract values.</p>
 </blockquote>
-<p>比如根据此图，我们得到下面的映射：<img src="http://web.mit.edu/6.031/www/sp18/classes/11-abstraction-functions-rep-invariants/figures/charset-af-ri.svg" alt><br>以下要点：<br><br>&emsp;<strong>·每一个抽象类都对应有原象</strong><br><br>&emsp;<strong>·一些抽象类映射前的原象不止一个</strong><br><br>&emsp;<strong>·而在集合R中并非所有元素都有映射的象</strong><br><br>&emsp;从rep values到其所表示的抽象值之间的映射表示如下</p>
+<p>比如根据此图，我们得到下面的映射：<img src="http://web.mit.edu/6.031/www/sp18/classes/11-abstraction-functions-rep-invariants/figures/charset-af-ri.svg" alt><br>以下要点：<br><br>&emsp;<strong>·每一个抽象类都对应有原象</strong><br><br>&emsp;<strong>·一些抽象类映射前的原象不止一个</strong><br><br>&emsp;<strong>·而在集合R中并非所有元素都有映射的象</strong><br><br>&emsp;和实验相关一点，AF就是某个成员变量代表的抽象概念，RI就是对这个成员变量的限制。然而我这个傻子恍然大悟，AF就是”Abstraction functioin”,RI即为” Representation invariant”啊！！！<br><br>&emsp;从rep values到其所表示的抽象值之间的映射表示如下</p>
 <blockquote>
 <p>AF: R -&gt; A</p>
 </blockquote>
@@ -421,8 +421,7 @@ return list;
 <p><strong>Rep exposure</strong>：<br><br>&emsp;java中数据类型分为mutable和immutable的，对前者进行的操作可能会改变其内部数据；而对后者的操作不改变其内部值，而是构造新的对象。因此，对于mutable的数据，如果没有良好的保护，意味着client对其的调用可以直接修改内部数据。</p>
 </blockquote>
 <h3 id="What-an-ADT-specification-may-talk-about"><a href="#What-an-ADT-specification-may-talk-about" class="headerlink" title="What an ADT specification may talk about"></a>What an ADT specification may talk about</h3><p><img src="http://web.mit.edu/6.031/www/sp18/classes/11-abstraction-functions-rep-invariants/figures/adt-firewall.svg" alt><br><br></p>
-<p>#ADT invariants replace preconditions</p>
-
+<h1 id="ADT-invariants-replace-preconditions"><a href="#ADT-invariants-replace-preconditions" class="headerlink" title="ADT invariants replace preconditions"></a>ADT invariants replace preconditions</h1>
       
     </div>
     
@@ -461,6 +460,10 @@ return list;
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/03/22/JAVA学习记录/" rel="prev" title="JAVA学习记录">
+                JAVA学习记录 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -539,7 +542,7 @@ return list;
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -592,7 +595,7 @@ return list;
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Invariants"><span class="nav-number">1.</span> <span class="nav-text">Invariants</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Rep-invariant-and-abstraction-function"><span class="nav-number">2.</span> <span class="nav-text">Rep invariant and abstraction function</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#No-null-values-in-the-rep"><span class="nav-number">2.0.1.</span> <span class="nav-text">No null values in the rep</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Beneficnet-mutation"><span class="nav-number">2.0.2.</span> <span class="nav-text">Beneficnet mutation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#What-an-ADT-specification-may-talk-about"><span class="nav-number">2.0.3.</span> <span class="nav-text">What an ADT specification may talk about</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Invariants"><span class="nav-number">1.</span> <span class="nav-text">Invariants</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Rep-invariant-and-abstraction-function"><span class="nav-number">2.</span> <span class="nav-text">Rep invariant and abstraction function</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#No-null-values-in-the-rep"><span class="nav-number">2.0.1.</span> <span class="nav-text">No null values in the rep</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Beneficnet-mutation"><span class="nav-number">2.0.2.</span> <span class="nav-text">Beneficnet mutation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#What-an-ADT-specification-may-talk-about"><span class="nav-number">2.0.3.</span> <span class="nav-text">What an ADT specification may talk about</span></a></li></ol></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#ADT-invariants-replace-preconditions"><span class="nav-number">3.</span> <span class="nav-text">ADT invariants replace preconditions</span></a></li></div>
             
 
           </div>
@@ -626,7 +629,7 @@ return list;
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">1.9k</span>
+    <span title="Site words total count">2.7k</span>
   
 </div>
 

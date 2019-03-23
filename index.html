@@ -241,6 +241,177 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="shawnsyx.top/2019/03/22/JAVA学习记录/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="霄先生吃元宵">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/6.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="是非曲吉祥物">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/03/22/JAVA学习记录/" itemprop="url">JAVA学习记录</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-22T11:00:27+08:00">
+                2019-03-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  656
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  2
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>&emsp;Lab2的要求看得我一头雾水，又是接口又是不变量的，往日中学时代被老师手把手教的日子果真一去不复返了,不过这种大学的学习方式可能更接近于以后人生中的独自上下求索的艰辛历程吧……</p>
+<h1 id="Interface-接口"><a href="#Interface-接口" class="headerlink" title="Interface 接口"></a>Interface 接口</h1><p>&emsp;根据百度百科</p>
+<blockquote>
+<p>&emsp;Java接口是一系列方法的声明，是一些方法特征的集合，一个接口只有方法的特征没有方法的实现，因此这些方法可以在不同的地方被不同的类实现，而这些实现可以具有不同的行为（功能）。<br><br>&emsp;两种含义：一，Java接口，Java语言中存在的结构，有特定的语法和结构；二，一个类所具有的方法的特征集合，是一种逻辑上的抽象。前者叫做“Java接口”，后者叫做“接口”。</p>
+</blockquote>
+<h1 id="静态方法和非静态方法"><a href="#静态方法和非静态方法" class="headerlink" title="静态方法和非静态方法"></a>静态方法和非静态方法</h1><p>&emsp;<br>在外部调用静态方法时，可以使用”类名.方法名”的方式，也可以使用”对象名.方法名”的方式。而实例方法只有后面这种方式。也就是说，调用静态方法可以无需创建对象。</p>
+<p>静态方法在访问本类的成员时，只允许访问静态成员（即静态成员变量和静态方法），而不允许访问实例成员变量和实例方法；实例方法则无此限制。</p>
+<h1 id="constructor（创造器）"><a href="#constructor（创造器）" class="headerlink" title="constructor（创造器）"></a>constructor（创造器）</h1><p>&emsp;构造器最大的用处就是在创建对象时执行初始化，当创建一个对象时，系统会为这个对象的实例进行默认的初始化。如果想改变这种默认的初始化，就可以通过自定义构造器来实现。例如软件构造实验中需要写一个ConcreteEdgesGraph</p>
+<pre><code>// TODO constructor
+/**
+ * construct a empty graph
+ */
+public ConcreteEdgesGraph() {
+}
+</code></pre><h1 id="Assert-断言）"><a href="#Assert-断言）" class="headerlink" title="Assert (断言）"></a>Assert (断言）</h1><p>&emsp;(1)<code>assert [boolean表达式]</code><br><br>&emsp;&emsp;如果表达式为true,程序继续执行，若为false则抛出AssertionError，并终止执行。<br><br>&emsp;(2)<code>assert [boolean 表达式:错误表达式(日志)]</code><br><br>&emsp;&emsp;如果表达式为true，程序继续执行。如果为false，则程序抛出java.lang.AssertionError，输出[错误信息]。</p>
+<h1 id="Iterator迭代器"><a href="#Iterator迭代器" class="headerlink" title="Iterator迭代器"></a>Iterator迭代器</h1><p>&emsp;就是提供一种方法对一个容器对象中的各个元素进行访问，而又不暴露该对象容器的内部细节。详见<a href="https://www.cnblogs.com/zyuze/p/7726582.html" target="_blank" rel="noopener">迭代器</a><br><br>而对应于SC实验中，对边的遍历涉及到迭代器的使用</p>
+<pre><code>List&lt;Edge&gt; iteratorEdges = new ArrayList&lt;Edge&gt;(edges);
+    for(Edge i : iteratorEdges) {
+        if(i.getSource().equals(vertex) || i.getTarget().equals(vertex))
+            edges.remove(i);
+    }
+</code></pre>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="shawnsyx.top/2019/03/19/软件构造笔记/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -320,7 +491,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  4
+                  5
                 </span>
               
             </div>
@@ -394,7 +565,7 @@ return list;
 <blockquote>
 <p>not only choosing the two spaces… but also deciding which rep values are legal, and how to interpret them as abstract values.</p>
 </blockquote>
-<p>比如根据此图，我们得到下面的映射：<img src="http://web.mit.edu/6.031/www/sp18/classes/11-abstraction-functions-rep-invariants/figures/charset-af-ri.svg" alt><br>以下要点：<br><br>&emsp;<strong>·每一个抽象类都对应有原象</strong><br><br>&emsp;<strong>·一些抽象类映射前的原象不止一个</strong><br><br>&emsp;<strong>·而在集合R中并非所有元素都有映射的象</strong><br><br>&emsp;从rep values到其所表示的抽象值之间的映射表示如下</p>
+<p>比如根据此图，我们得到下面的映射：<img src="http://web.mit.edu/6.031/www/sp18/classes/11-abstraction-functions-rep-invariants/figures/charset-af-ri.svg" alt><br>以下要点：<br><br>&emsp;<strong>·每一个抽象类都对应有原象</strong><br><br>&emsp;<strong>·一些抽象类映射前的原象不止一个</strong><br><br>&emsp;<strong>·而在集合R中并非所有元素都有映射的象</strong><br><br>&emsp;和实验相关一点，AF就是某个成员变量代表的抽象概念，RI就是对这个成员变量的限制。然而我这个傻子恍然大悟，AF就是”Abstraction functioin”,RI即为” Representation invariant”啊！！！<br><br>&emsp;从rep values到其所表示的抽象值之间的映射表示如下</p>
 <blockquote>
 <p>AF: R -&gt; A</p>
 </blockquote>
@@ -411,8 +582,7 @@ return list;
 <p><strong>Rep exposure</strong>：<br><br>&emsp;java中数据类型分为mutable和immutable的，对前者进行的操作可能会改变其内部数据；而对后者的操作不改变其内部值，而是构造新的对象。因此，对于mutable的数据，如果没有良好的保护，意味着client对其的调用可以直接修改内部数据。</p>
 </blockquote>
 <h3 id="What-an-ADT-specification-may-talk-about"><a href="#What-an-ADT-specification-may-talk-about" class="headerlink" title="What an ADT specification may talk about"></a>What an ADT specification may talk about</h3><p><img src="http://web.mit.edu/6.031/www/sp18/classes/11-abstraction-functions-rep-invariants/figures/adt-firewall.svg" alt><br><br></p>
-<p>#ADT invariants replace preconditions</p>
-
+<h1 id="ADT-invariants-replace-preconditions"><a href="#ADT-invariants-replace-preconditions" class="headerlink" title="ADT invariants replace preconditions"></a>ADT invariants replace preconditions</h1>
           
         
       
@@ -654,7 +824,7 @@ return list;
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -725,7 +895,7 @@ return list;
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">1.9k</span>
+    <span title="Site words total count">2.7k</span>
   
 </div>
 
