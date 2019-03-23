@@ -93,7 +93,7 @@
 <meta property="og:image" content="http://web.mit.edu/6.031/www/sp18/classes/11-abstraction-functions-rep-invariants/figures/charset-af-ri.svg">
 <meta property="og:image" content="http://web.mit.edu/6.031/www/sp18/classes/11-abstraction-functions-rep-invariants/figures/charset-norepeats.svg">
 <meta property="og:image" content="http://web.mit.edu/6.031/www/sp18/classes/11-abstraction-functions-rep-invariants/figures/adt-firewall.svg">
-<meta property="og:updated_time" content="2019-03-23T14:07:02.082Z">
+<meta property="og:updated_time" content="2019-03-23T14:42:55.329Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="软件构造笔记Rep">
 <meta name="twitter:description" content="阅读材料来自于MIT的Software Construction课程 Reading 11: Abstraction Functions &amp;amp; Rep Invariants.要点如下:·invariant·representation exposure·abstraction functions·representation invariantsThe rep invariant wil">
@@ -316,7 +316,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1.1k
+                  1.3k
                 </span>
               
 
@@ -355,7 +355,7 @@
       
         <p>  阅读材料来自于MIT的Software Construction课程 <a href="http://web.mit.edu/6.031/www/sp18/classes/11-abstraction-functions-rep-invariants/" target="_blank" rel="noopener">Reading 11: Abstraction Functions &amp; Rep Invariants</a>.<br><br>要点如下:<br><br>·<strong>invariant</strong><br><br>·<strong>representation exposure</strong><br><br>·<strong>abstraction functions</strong><br><br>·<strong>representation invariants</strong><br><br>The rep invariant will make it easier to catch bugs caused by a corrupted data structure.</p>
 <h1 id="Invariants"><a href="#Invariants" class="headerlink" title="Invariants"></a>Invariants</h1><p>&emsp;一个好的抽象数据型(ADT)的关键：能否<strong>preserves its own invariants</strong></p>
-<p>###Immutability<br>&emsp;看下面的例子<br><br></p>
+<h3 id="Immutability"><a href="#Immutability" class="headerlink" title="Immutability"></a>Immutability</h3><p>&emsp;看下面的例子<br><br></p>
 <pre><code>public class Tweet {
 
 public String author;
@@ -399,12 +399,16 @@ return list;
     this.text = text;
     this.timestamp = new Date(timestamp.getTime());
 }
-</code></pre><p>###Immutable wrappers around mutable data types<br>&emsp;此时，轮到我们的<code>Collections.unmodifiableList()</code>亮相。但是一个downside就是得到的所谓的immutability只是在runtime，but not at compile time. Java也不会在你试着<code>sort()</code>这个unmodifiable list的时候警告你，反而抛给你一个冷冰冰的异常。<br><br>&emsp;注意阅读练习里面的array相关的problem</p>
+</code></pre><h3 id="Immutable-wrappers-around-mutable-data-types"><a href="#Immutable-wrappers-around-mutable-data-types" class="headerlink" title="Immutable wrappers around mutable data types"></a>Immutable wrappers around mutable data types</h3><p>&emsp;此时，轮到我们的<code>Collections.unmodifiableList()</code>亮相。但是一个downside就是得到的所谓的immutability只是在runtime，but not at compile time. Java也不会在你试着<code>sort()</code>这个unmodifiable list的时候警告你，反而抛给你一个冷冰冰的异常。<br><br>&emsp;注意阅读练习里面的array相关的problem</p>
 <h1 id="Rep-invariant-and-abstraction-function"><a href="#Rep-invariant-and-abstraction-function" class="headerlink" title="Rep invariant and abstraction function"></a>Rep invariant and abstraction function</h1><p>&emsp;关键不仅仅在于选取两个集合Space，而且在于选取什么的元素为合法，并且怎样将它们对应成抽象的值。</p>
 <blockquote>
 <p>not only choosing the two spaces… but also deciding which rep values are legal, and how to interpret them as abstract values.</p>
 </blockquote>
-<p>比如根据此图，我们得到下面的映射：<img src="http://web.mit.edu/6.031/www/sp18/classes/11-abstraction-functions-rep-invariants/figures/charset-af-ri.svg" alt><br>以下要点：<br><br>&emsp;<strong>·每一个抽象类都对应有原象</strong><br><br>&emsp;<strong>·一些抽象类映射前的原象不止一个</strong><br><br>&emsp;<strong>·而在集合R中并非所有元素都有映射的象</strong><br><br>&emsp;和实验相关一点，AF就是某个成员变量代表的抽象概念，RI就是对这个成员变量的限制。然而我这个傻子恍然大悟，AF就是”Abstraction functioin”,RI即为” Representation invariant”啊！！！<br><br>&emsp;从rep values到其所表示的抽象值之间的映射表示如下</p>
+<p>比如根据此图，我们得到下面的映射：<img src="http://web.mit.edu/6.031/www/sp18/classes/11-abstraction-functions-rep-invariants/figures/charset-af-ri.svg" alt><br>以下要点：<br><br>&emsp;<strong>·每一个抽象类都对应有原象</strong><br><br>&emsp;<strong>·一些抽象类映射前的原象不止一个</strong><br><br>&emsp;<strong>·而在集合R中并非所有元素都有映射的象</strong><br><br>&emsp;和实验相关一点，AF就是某个成员变量代表的抽象概念，RI就是对这个成员变量的限制。然而我这个傻子恍然大悟，AF就是”Abstraction functioin”,RI即为” Representation invariant”啊！！！</p>
+<blockquote>
+<p><strong>抽象函数AF</strong>：R和A之间映射关系的函数，即如何去解 释R中的每一个值为A中的每一个值。<br><br><strong>表示不变性RI</strong>：某个具体的“表示”是否是“合法的”<br><br>&emsp;可将RI看作：所有表示值的一个子集，包含了所有合法的表示值<br><br> &emsp;也可将RI看作：一个条件，描述了什么是“合法”的表示</p>
+</blockquote>
+<p><br>&emsp;从rep values到其所表示的抽象值之间的映射表示如下</p>
 <blockquote>
 <p>AF: R -&gt; A</p>
 </blockquote>
@@ -412,16 +416,17 @@ return list;
 <blockquote>
 <p>Rep invariant is a function from rep values to boolean.</p>
 </blockquote>
-<p>###Checkint the rep invariant<br>check的特点：</p>
+<h3 id="Checkint-the-rep-invariant"><a href="#Checkint-the-rep-invariant" class="headerlink" title="Checkint the rep invariant"></a>Checkint the rep invariant</h3><p>check的特点：</p>
 <blockquote>
 <p>&emsp;It’s good for an implementer to call <code>checkRep()</code> just before returning from a public method of an ADT class.<br><br>&emsp;<code>checkRep()</code> asserts the rep invariant.</p>
 </blockquote>
-<h3 id="No-null-values-in-the-rep"><a href="#No-null-values-in-the-rep" class="headerlink" title="No null values in the rep"></a>No null values in the rep</h3><h3 id="Beneficnet-mutation"><a href="#Beneficnet-mutation" class="headerlink" title="Beneficnet mutation"></a>Beneficnet mutation</h3><p>#Documenting the AF,RI, and safety from rep exposure<br>注意，在描述rep invariant and abstraction function的时候，必须注意：<br><br>&emsp;不能仅仅用“域内全员合法”来简简单单概括RI，重要的是explain是如何区分“合法”和“非法”的。<br><br>&emsp;同样的，对于AF而言，仅仅声明“represents a set of charaters”也是不够的。而应该<strong>define precisely how the concrete field values are interpreted</strong><br>而根据<a href="http://https://blog.csdn.net/weixin_39643135/article/details/80231152" target="_blank" rel="noopener">同学的解释</a></p>
+<h3 id="No-null-values-in-the-rep"><a href="#No-null-values-in-the-rep" class="headerlink" title="No null values in the rep"></a>No null values in the rep</h3><h3 id="Beneficnet-mutation"><a href="#Beneficnet-mutation" class="headerlink" title="Beneficnet mutation"></a>Beneficnet mutation</h3><h1 id="Documenting-the-AF-RI-and-safety-from-rep-exposure"><a href="#Documenting-the-AF-RI-and-safety-from-rep-exposure" class="headerlink" title="Documenting the AF,RI, and safety from rep exposure"></a>Documenting the AF,RI, and safety from rep exposure</h1><p>注意，在描述rep invariant and abstraction function的时候，必须注意：<br><br>&emsp;不能仅仅用“域内全员合法”来简简单单概括RI，重要的是explain是如何区分“合法”和“非法”的。<br><br>&emsp;同样的，对于AF而言，仅仅声明“represents a set of charaters”也是不够的。而应该<strong>define precisely how the concrete field values are interpreted</strong><br>而根据<a href="http://https://blog.csdn.net/weixin_39643135/article/details/80231152" target="_blank" rel="noopener">同学的解释</a></p>
 <blockquote>
 <p><strong>Rep exposure</strong>：<br><br>&emsp;java中数据类型分为mutable和immutable的，对前者进行的操作可能会改变其内部数据；而对后者的操作不改变其内部值，而是构造新的对象。因此，对于mutable的数据，如果没有良好的保护，意味着client对其的调用可以直接修改内部数据。</p>
 </blockquote>
 <h3 id="What-an-ADT-specification-may-talk-about"><a href="#What-an-ADT-specification-may-talk-about" class="headerlink" title="What an ADT specification may talk about"></a>What an ADT specification may talk about</h3><p><img src="http://web.mit.edu/6.031/www/sp18/classes/11-abstraction-functions-rep-invariants/figures/adt-firewall.svg" alt><br><br></p>
-<h1 id="ADT-invariants-replace-preconditions"><a href="#ADT-invariants-replace-preconditions" class="headerlink" title="ADT invariants replace preconditions"></a>ADT invariants replace preconditions</h1>
+<h1 id="ADT-invariants-replace-preconditions"><a href="#ADT-invariants-replace-preconditions" class="headerlink" title="ADT invariants replace preconditions"></a>ADT invariants replace preconditions</h1><p>An invariant is a property of a program that is always true, for every possible runtime state of the program.<br><br>&emsp;为什么需要不变量？ <del>因为爱情。</del>保持程序的“正确性”，容易发现错误。</p>
+
       
     </div>
     
@@ -595,7 +600,7 @@ return list;
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Invariants"><span class="nav-number">1.</span> <span class="nav-text">Invariants</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Rep-invariant-and-abstraction-function"><span class="nav-number">2.</span> <span class="nav-text">Rep invariant and abstraction function</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#No-null-values-in-the-rep"><span class="nav-number">2.0.1.</span> <span class="nav-text">No null values in the rep</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Beneficnet-mutation"><span class="nav-number">2.0.2.</span> <span class="nav-text">Beneficnet mutation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#What-an-ADT-specification-may-talk-about"><span class="nav-number">2.0.3.</span> <span class="nav-text">What an ADT specification may talk about</span></a></li></ol></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#ADT-invariants-replace-preconditions"><span class="nav-number">3.</span> <span class="nav-text">ADT invariants replace preconditions</span></a></li></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Invariants"><span class="nav-number">1.</span> <span class="nav-text">Invariants</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Immutability"><span class="nav-number">1.0.1.</span> <span class="nav-text">Immutability</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Immutable-wrappers-around-mutable-data-types"><span class="nav-number">1.0.2.</span> <span class="nav-text">Immutable wrappers around mutable data types</span></a></li></ol></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#Rep-invariant-and-abstraction-function"><span class="nav-number">2.</span> <span class="nav-text">Rep invariant and abstraction function</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Checkint-the-rep-invariant"><span class="nav-number">2.0.1.</span> <span class="nav-text">Checkint the rep invariant</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#No-null-values-in-the-rep"><span class="nav-number">2.0.2.</span> <span class="nav-text">No null values in the rep</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Beneficnet-mutation"><span class="nav-number">2.0.3.</span> <span class="nav-text">Beneficnet mutation</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Documenting-the-AF-RI-and-safety-from-rep-exposure"><span class="nav-number">3.</span> <span class="nav-text">Documenting the AF,RI, and safety from rep exposure</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#What-an-ADT-specification-may-talk-about"><span class="nav-number">3.0.1.</span> <span class="nav-text">What an ADT specification may talk about</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ADT-invariants-replace-preconditions"><span class="nav-number">4.</span> <span class="nav-text">ADT invariants replace preconditions</span></a></li></div>
             
 
           </div>
@@ -629,7 +634,7 @@ return list;
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">2.9k</span>
+    <span title="Site words total count">3k</span>
   
 </div>
 
