@@ -413,7 +413,7 @@ height:50vh;
 <h1 id="Iterator迭代器"><a href="#Iterator迭代器" class="headerlink" title="Iterator迭代器"></a>Iterator迭代器</h1><p>&emsp;就是提供一种方法对一个容器对象中的各个元素进行访问，而又不暴露该对象容器的内部细节。详见<a href="https://www.cnblogs.com/zyuze/p/7726582.html" target="_blank" rel="noopener">迭代器</a><br><br>而对应于SC实验中，对边的遍历涉及到迭代器的使用<br><figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">List&lt;Edge&gt; iteratorEdges = <span class="keyword">new</span> ArrayList&lt;Edge&gt;(edges);</span><br><span class="line">    <span class="keyword">for</span>(Edge i : iteratorEdges) &#123;</span><br><span class="line">    	<span class="keyword">if</span>(i.getSource().<span class="keyword">equals</span>(vertex) || i.getTarget().<span class="keyword">equals</span>(vertex))</span><br><span class="line">    		edges.<span class="keyword">remove</span>(i);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
 <h1 id="声明"><a href="#声明" class="headerlink" title="声明"></a>声明</h1><p>简而言之就是可以存在这个东西，如果没有此声明的话会出错-没有实例化。<br><figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> final <span class="built_in">String</span> label;</span><br><span class="line"><span class="keyword">private</span> final <span class="built_in">Map</span>&lt;<span class="built_in">String</span>, <span class="built_in">Integer</span>&gt; toVertex;  <span class="comment">//声明存在合法变量</span></span><br></pre></td></tr></table></figure></p>
 <p>对应于以下的实例化<br><figure class="highlight haxe"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">toVertex = <span class="keyword">new</span> <span class="type">HashMap</span>&lt;<span class="keyword">String</span>, Integer&gt;();</span><br></pre></td></tr></table></figure></p>
-<h1 id="泛型"><a href="#泛型" class="headerlink" title="泛型"></a>泛型</h1><p>&emsp;Java泛型（generics）是JDK5中引入的一个新特性，泛型提供了编译时类型安全监测机制，该机制允许程序员在编译时检测到非法的类型。<br>泛型的本质是参数化类型，也就是说所操作的数据类型被指定为一个参数。<br><br>&emsp;在软件工程课程里面<a href="http://web.mit.edu/6.031/www/sp17/psets/ps2/" target="_blank" rel="noopener">Poetic Walks</a>P3应用到了泛型。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Vertex</span>&lt;<span class="title">L</span>&gt; </span>&#123;</span><br><span class="line"> <span class="keyword">private</span> <span class="keyword">final</span> L label;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> Map&lt;L, Integer&gt; toVertex;  <span class="comment">//声明存在合法变量</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h1 id="泛型"><a href="#泛型" class="headerlink" title="泛型"></a>泛型</h1><p>&emsp;Java泛型（generics）是JDK5中引入的一个新特性，泛型提供了编译时类型安全监测机制，该机制允许程序员在编译时检测到非法的类型。<br>泛型的本质是参数化类型，也就是说所操作的数据类型被指定为一个参数。<br><br>&emsp;在软件工程课程里面<a href="http://web.mit.edu/6.031/www/sp17/psets/ps2/" target="_blank" rel="noopener">Poetic Walks</a>P3应用到了泛型。<br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Vertex</span>&lt;<span class="title">L</span>&gt; </span>&#123;</span><br><span class="line"> <span class="keyword">private</span> <span class="keyword">final</span> L label;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> Map&lt;L, Integer&gt; toVertex;  <span class="comment">//声明存在合法变量</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
     </article>
     <!-- license  -->
@@ -680,13 +680,13 @@ top:50vh;
         <div class="sidebar-panel-tags">
     <div class="sidebar-tags-name">
     
-        <span class="sidebar-tag-name" data-tags="软件构造笔记"><span class="iconfont-archer">&#xe606;</span>软件构造笔记</span>
-    
         <span class="sidebar-tag-name" data-tags="笔记"><span class="iconfont-archer">&#xe606;</span>笔记</span>
+    
+        <span class="sidebar-tag-name" data-tags="小感"><span class="iconfont-archer">&#xe606;</span>小感</span>
     
         <span class="sidebar-tag-name" data-tags="竹林深处"><span class="iconfont-archer">&#xe606;</span>竹林深处</span>
     
-        <span class="sidebar-tag-name" data-tags="小感"><span class="iconfont-archer">&#xe606;</span>小感</span>
+        <span class="sidebar-tag-name" data-tags="软件构造笔记"><span class="iconfont-archer">&#xe606;</span>软件构造笔记</span>
     
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
@@ -721,11 +721,11 @@ jsonContent:
         <div class="sidebar-panel-categories">
     <div class="sidebar-categories-name">
     
-        <span class="sidebar-category-name" data-categories="软件构造笔记"><span class="iconfont-archer">&#xe60a;</span>软件构造笔记</span>
-    
         <span class="sidebar-category-name" data-categories="笔记"><span class="iconfont-archer">&#xe60a;</span>笔记</span>
     
         <span class="sidebar-category-name" data-categories="竹林深处"><span class="iconfont-archer">&#xe60a;</span>竹林深处</span>
+    
+        <span class="sidebar-category-name" data-categories="软件构造笔记"><span class="iconfont-archer">&#xe60a;</span>软件构造笔记</span>
     
     </div>
     <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
