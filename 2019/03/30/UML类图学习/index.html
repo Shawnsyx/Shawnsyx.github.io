@@ -22,7 +22,7 @@
     <meta name="description" content>
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Shawn&#39;s</title>
+    <title>UML类图学习 · Shawn&#39;s</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -203,12 +203,23 @@
 </head>
 
     
+        <body class="post-body">
+    
     
 <header class="header">
 
     <div class="read-progress"></div>
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/">Utopia</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">UML类图学习</a>
+            </div>
+    </div>
     
     <a class="home-link" href="/">Utopia</a>
 </header>
@@ -220,24 +231,74 @@
 
 
 
+
+height:50vh;
 ">
     
     <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
             
     <div class="site-intro-placeholder"></div>
-    <div class="site-intro-img" style="background-image: url(/)"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/sky.jpg)"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
+            
+            UML类图学习
+            <!-- 404 -->
             
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
             
+            
+            <!-- 404 -->
+            
         </p>
         <!-- 文章页meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                    <div class="post-intro-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="笔记">笔记</a>
+    
+</div>
+                
+                
+                    <div class="post-intro-read">
+                        <span>字数统计: <span class="post-count word-count">1.5k</span>阅读时长: <span class="post-count reading-time">5 min</span></span>
+                    </div>
+                
+                <div class="post-intro-meta">
+                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                    <span class="post-intro-time">2019/03/30</span>
+                    
+                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                        <span class="iconfont-archer">&#xe602;</span>
+                        <span id="busuanzi_value_page_pv"></span>
+                    </span>
+                    
+                    <span class="shareWrapper">
+                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                        <span class="shareText">Share</span>
+                        <ul class="shareList">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
         
     </div>
 </div>
@@ -338,78 +399,80 @@
 </script>        
         <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
         <div class="container container-unloaded">
-            <main class="main index-page">
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/03/27/致那些人们/">
-            
-                <span>致那些人们</span>
-        </a>
-        <div class="abstract-content">
-            
-Those who are deadAre not deadThey’re just living in my head.And since i fellFor that spellI am living there as well                             ——Coldplay 《42》
+            <main class="main post-page">
+    <article class="article-entry">
+        <p>阅读材料来自于：<a href="http://www.uml.org.cn/oobject/201211231.asp" target="_blank" rel="noopener">深入浅出UML类图</a><br><br>&emsp;类图用于描述系统中所包含的类以及它们之间的相互关系，帮助人们简化对系统的理解，它是系统分析和设计阶段的重要产物，也是系统编码和测试的重要模型依据。</p>
+<h1 id="类"><a href="#类" class="headerlink" title="类"></a>类</h1><p>&emsp;类(Class)封装了数据和行为，是面向对象的重要组成部分，它是具有相同属性、操作、关系的对象集合的总称。在软件系统运行时，类将被实例化成对象(Object)，对象对应于某个具体的事物，是类的实例(Instance)。<br><br>&emsp;类图(Class Diagram)使用出现在系统中的不同类来描述系统的静态结构，它用来描述不同的类以及它们之间的关系。</p>
+<h1 id="类的UML图示"><a href="#类的UML图示" class="headerlink" title="类的UML图示"></a>类的UML图示</h1><p>&emsp;在UML中，类使用包含类名、属性和操作且带有分隔线的长方形来表示，如定义一个Employee类，它包含属性name、age和email，以及操作modifyInfo()，在UML类图中该类如图1所示：</p>
+<img src="/30/UML类图学习/2019/03/30/UML类图学习/1.png" title="图1">
+<p>&emsp;<br>在UML类图中，类一般由三部分组成：</p>
+<ol>
+<li>第一部分是类名：每个类都必须有一个名字，类名是一个字符串。</li>
+<li>第二部分是类的属性(Attributes)：属性是指类的性质，即类的成员变量。一个类可以有任意多个属性，也可以没有属性</li>
+</ol>
+<p>UML规定属性的表示方式为：<strong>可见性 名称:类型 [ = 缺省值 ]</strong></p>
+<p>其中：</p>
+<ul>
+<li>“可见性”表示该属性对于类外的元素而言是否可见，包括公有(public)、私有(private)和受保护(protected)三种，在类图中分别用符号+、-和#表示。</li>
+<li>“名称”表示属性名，用一个字符串表示。</li>
+<li>“类型”表示属性的数据类型，可以是基本数据类型，也可以是用户自定义类型。</li>
+<li>“缺省值”是一个可选项，即属性的初始值。</li>
+</ul>
+<ol start="3">
+<li>第三部分是类的操作(Operations)：操作是类的任意一个实例对象都可以使用的行为，是类的成员方法。</li>
+</ol>
+<p>UML规定操作的表示方式为：<strong>可见性 名称(参数列表) [ : 返回类型]</strong><br>其中：</p>
+<ul>
+<li>“可见性”的定义与属性的可见性定义相同。</li>
+<li>“名称”即方法名，用一个字符串表示。</li>
+<li>“参数列表”表示方法的参数，其语法与属性的定义相似，参数个数是任意的，多个参数之间用逗号“，”隔开。</li>
+<li>“返回类型”是一个可选项，表示方法的返回值类型，依赖于具体的编程语言，可以是基本数据类型，也可以是用户自定义类型，还可以是空类型(void)，如果是构造方法，则无返回类型。</li>
+</ul>
+<p>在类中，操作method1的可见性为public(+)，带入了一个Object类型的参数par，返回值为空(void)；操作method2的可见性为protected(#)，无参数，返回值为String类型；操作method3的可见性为private(-)，包含两个参数，其中一个参数为int类型，另一个为int[]类型，返回值为int类型。<br><img src="/30/UML类图学习/2019/03/30/UML类图学习/2.png" title="图2"></p>
+<h1 id="类与类之间的关系"><a href="#类与类之间的关系" class="headerlink" title="类与类之间的关系"></a>类与类之间的关系</h1><p>&emsp;在软件系统中，类并不是孤立存在的，类与类之间存在各种关系，对于不同类型的关系，UML提供了不同的表示方式。</p>
+<h2 id="关联关系"><a href="#关联关系" class="headerlink" title="关联关系"></a>关联关系</h2><p>&emsp;关联(Association)关系是类与类之间最常用的一种关系，它是一种结构化关系，用于表示一类对象与另一类对象之间有联系.<br> <img src="/30/UML类图学习/2019/03/30/UML类图学习/3.png" title="图3"></p>
+<h3 id="双向关联"><a href="#双向关联" class="headerlink" title="双向关联"></a>双向关联</h3><p>&emsp;默认情况下，关联是双向的。例如：顾客(Customer)购买商品(Product)并拥有商品。<br><img src="/30/UML类图学习/2019/03/30/UML类图学习/4.png" title="双向关联"></p>
+<h3 id="单向关联"><a href="#单向关联" class="headerlink" title="单向关联"></a>单向关联</h3><p>&emsp;类的关联关系也可以是单向的，单向关联用带箭头的实线表示。<br><img src="/30/UML类图学习/2019/03/30/UML类图学习/5.png" title="单向关联"></p>
+<h3 id="自关联"><a href="#自关联" class="headerlink" title="自关联"></a>自关联</h3><p>&emsp;在系统中可能会存在一些类的属性对象类型为该类本身，这种特殊的关联关系称为自关联。例如：一个节点类(Node)的成员又是节点Node类型的对象，如图所示：<br><img src="/30/UML类图学习/2019/03/30/UML类图学习/6.png" title="自关联"></p>
+<h3 id="多重关联"><a href="#多重关联" class="headerlink" title="多重关联"></a>多重关联</h3><p>&emsp;了解即可</p>
+<h3 id="聚合关系"><a href="#聚合关系" class="headerlink" title="聚合关系"></a>聚合关系</h3><p>&emsp;聚合(Aggregation)关系表示整体与部分的关系。在聚合关系中，成员对象是整体对象的一部分，但是成员对象可以脱离整体对象独立存在。在UML中，聚合关系用带空心菱形的直线表示。<br><img src="/30/UML类图学习/2019/03/30/UML类图学习/7.png" title="聚合关系"><br>代码如下：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Car</span> &#123;</span></span><br><span class="line">   <span class="keyword">private</span> Engine engine;</span><br><span class="line">    <span class="comment">//构造注入</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="title">Car</span><span class="params">(Engine engine)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.engine = engine;</span><br><span class="line">	&#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//设值注入</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setEngine</span><span class="params">(Engine engine)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.engine = engine;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Engine</span> &#123;</span></span><br><span class="line">	……</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="组合关系"><a href="#组合关系" class="headerlink" title="组合关系"></a>组合关系</h3><p>&emsp;组合(Composition)关系也表示类之间整体和部分的关系，但是在组合关系中整体对象可以控制成员对象的生命周期，一旦整体对象不存在，成员对象也将不存在，成员对象与整体对象之间具有同生共死的关系。</p>
+<h2 id="依赖关系"><a href="#依赖关系" class="headerlink" title="依赖关系"></a>依赖关系</h2><img src="/30/UML类图学习/2019/03/30/UML类图学习/8.png" title="依赖关系">
+<h2 id="泛化关系"><a href="#泛化关系" class="headerlink" title="泛化关系"></a>泛化关系</h2><p>&emsp;泛化(Generalization)关系也就是继承关系，用于描述父类与子类之间的关系，父类又称作基类或超类，子类又称作派生类。在UML中，泛化关系用带空心三角形的直线来表示。<br><img src="/30/UML类图学习/2019/03/30/UML类图学习/9.png" title="泛化关系"></p>
+<h2 id="接口与实现关系"><a href="#接口与实现关系" class="headerlink" title="接口与实现关系"></a>接口与实现关系</h2><p>&emsp;在接口中，通常没有属性，而且所有的操作都是抽象的，只有操作的声明，没有操作的实现。UML中用与类的表示法类似的方式表示接口：<br><img src="/30/UML类图学习/2019/03/30/UML类图学习/10.png" title="接口的UML图示"></p>
+<p>&emsp;接口之间也可以有与类之间关系类似的继承关系和依赖关系，但是接口和类之间还存在一种实现(Realization)关系，在这种关系中，类实现了接口，类中的操作实现了接口中所声明的操作。在UML中，类与接口之间的实现关系用带空心三角形的虚线来表示：<br><img src="/30/UML类图学习/2019/03/30/UML类图学习/11.png" title="实现关系实例"></p>
 
-&emsp;致那些失去亲爱的人的人们。
-&emsp;其实想想人们都将往那里走去，“死亡是一座灯塔”。人常说死者离开人世走入记忆，但生者如何依托死者的记忆活着呢？我并非选择躲在角落里一个人默默舔舐伤口，而是带着那份疼痛活下去。记下这意识流，藉此满足我心里的倾诉欲。&em...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/03/27</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="竹林深处">竹林深处</a>
-    
-</div>
-            
-        </div>
     </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/03/19/鄙人杂谈/">
-            
-                <span class="stick-top iconfont-archer">&#xe63d;</span>
-                
-                <span>鄙人胡诌</span>
-        </a>
-        <div class="abstract-content">
-            
-  自修自持莫道此间非彼岸，即心即佛须知东土是西天
-
-
- &ensp; 羡艳着橙子和钟哥的博客，自己也心痒痒，谁所菜鸡不能有自己的鸡笼？于是乎我也按着教程一步一步地de着bug，学着毫无技术含量的操作。&ensp;或许写博客当有中学时代拿着尺子和铅笔一点点打格整理笔记的美感？我挺喜欢手字笔录的方式，但怎奈这越学越深的计算机世界不给你手字笔录的时间让你横平竖直工笔正楷地整理笔记。&ensp;《离骚》中有“朝濯发于汤谷兮，夕晞余身兮九阳”，闭目仿佛看见一身高八尺有余形貌昳丽的长发美男于光中背对着你，可瞅瞅我现在满脸油光，痘印未消，面如土色，发型凌乱，眼小无神，体形消瘦······（再说下去...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/03/19</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="竹林深处">竹林深处</a>
-    
-</div>
-            
-        </div>
-    </article>
+    <!-- license  -->
     
     <!-- paginator  -->
+    <ul class="post-paginator">
+        <li class="next">
+            
+        </li>
+        <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href="/2019/03/27/致那些人们/" title="致那些人们">
+                    <div class="prevTitle">致那些人们</div>
+                </a>
+            
+        </li>
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<!-- City版安装代码已完成 -->
     
+    
+    <!-- partial('_partial/comment/changyan') -->
+    <!--PC版-->
+
+
+    
+    
+
+    <!-- 评论 -->
 </main>
             <!-- profile -->
             
@@ -505,6 +568,24 @@ Those who are deadAre not deadThey’re just living in my head.And since i fellF
 </footer>
     </div>
     <!-- toc -->
+    
+    <div class="toc-wrapper" style=
+    
+
+
+
+
+
+
+
+top:50vh;
+
+    >
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#类"><span class="toc-number">1.</span> <span class="toc-text">类</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#类的UML图示"><span class="toc-number">2.</span> <span class="toc-text">类的UML图示</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#类与类之间的关系"><span class="toc-number">3.</span> <span class="toc-text">类与类之间的关系</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#关联关系"><span class="toc-number">3.1.</span> <span class="toc-text">关联关系</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#双向关联"><span class="toc-number">3.1.1.</span> <span class="toc-text">双向关联</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#单向关联"><span class="toc-number">3.1.2.</span> <span class="toc-text">单向关联</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#自关联"><span class="toc-number">3.1.3.</span> <span class="toc-text">自关联</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#多重关联"><span class="toc-number">3.1.4.</span> <span class="toc-text">多重关联</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#聚合关系"><span class="toc-number">3.1.5.</span> <span class="toc-text">聚合关系</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#组合关系"><span class="toc-number">3.1.6.</span> <span class="toc-text">组合关系</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#依赖关系"><span class="toc-number">3.2.</span> <span class="toc-text">依赖关系</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#泛化关系"><span class="toc-number">3.3.</span> <span class="toc-text">泛化关系</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#接口与实现关系"><span class="toc-number">3.4.</span> <span class="toc-text">接口与实现关系</span></a></li></ol></li></ol>
+    </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
     <div class="sidebar sidebar-hide">
@@ -700,6 +781,8 @@ jsonContent:
     
     </div>
     <!-- async load share.js -->
+    
+        <script src="/scripts/share.js" async></script>    
      
     </body>
 </html>
