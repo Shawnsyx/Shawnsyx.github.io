@@ -22,7 +22,7 @@
     <meta name="description" content>
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>UML类图学习 · Shawn&#39;s</title>
+    <title>UML类图学习 · 是非曲吉祥物</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -436,7 +436,7 @@ height:50vh;
 <h3 id="单向关联"><a href="#单向关联" class="headerlink" title="单向关联"></a>单向关联</h3><p>&emsp;类的关联关系也可以是单向的，单向关联用带箭头的实线表示。<br><img src="http://www.uml.org.cn/oobject/images/2012112316.jpg" alt></p>
 <h3 id="自关联"><a href="#自关联" class="headerlink" title="自关联"></a>自关联</h3><p>&emsp;在系统中可能会存在一些类的属性对象类型为该类本身，这种特殊的关联关系称为自关联。例如：一个节点类(Node)的成员又是节点Node类型的对象，如图所示：<br><img src="http://www.uml.org.cn/oobject/images/2012112317.jpg" alt></p>
 <h3 id="多重关联"><a href="#多重关联" class="headerlink" title="多重关联"></a>多重关联</h3><p>&emsp;了解即可</p>
-<h3 id="聚合关系"><a href="#聚合关系" class="headerlink" title="聚合关系"></a>聚合关系</h3><p>&emsp;聚合(Aggregation)关系表示整体与部分的关系。在聚合关系中，成员对象是整体对象的一部分，但是成员对象可以脱离整体对象独立存在。在UML中，聚合关系用带空心菱形的直线表示。<br><img src="http://www.uml.org.cn/oobject/images/2012112319.jpg" alt><br>代码如下：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Car</span> &#123;</span></span><br><span class="line">   <span class="keyword">private</span> Engine engine;</span><br><span class="line">    <span class="comment">//构造注入</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="title">Car</span><span class="params">(Engine engine)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.engine = engine;</span><br><span class="line">	&#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//设值注入</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setEngine</span><span class="params">(Engine engine)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.engine = engine;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Engine</span> &#123;</span></span><br><span class="line">	……</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="聚合关系"><a href="#聚合关系" class="headerlink" title="聚合关系"></a>聚合关系</h3><p>&emsp;聚合(Aggregation)关系表示整体与部分的关系。在聚合关系中，成员对象是整体对象的一部分，但是成员对象可以脱离整体对象独立存在。在UML中，聚合关系用带空心菱形的直线表示。<br><img src="http://www.uml.org.cn/oobject/images/2012112319.jpg" alt><br>代码如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">public class Car &#123;</span><br><span class="line">   private Engine engine;</span><br><span class="line">    //构造注入</span><br><span class="line">   public Car(Engine engine) &#123;</span><br><span class="line">		this.engine = engine;</span><br><span class="line">	&#125;</span><br><span class="line">    </span><br><span class="line">    //设值注入</span><br><span class="line">   public void setEngine(Engine engine) &#123;</span><br><span class="line">    this.engine = engine;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">public class Engine &#123;</span><br><span class="line">	……</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <h3 id="组合关系"><a href="#组合关系" class="headerlink" title="组合关系"></a>组合关系</h3><p>&emsp;组合(Composition)关系也表示类之间整体和部分的关系，但是在组合关系中整体对象可以控制成员对象的生命周期，一旦整体对象不存在，成员对象也将不存在，成员对象与整体对象之间具有同生共死的关系。</p>
 <h2 id="依赖关系"><a href="#依赖关系" class="headerlink" title="依赖关系"></a>依赖关系</h2><p><img src="http://www.uml.org.cn/oobject/images/20121123111.jpg" alt></p>
 <h2 id="泛化关系"><a href="#泛化关系" class="headerlink" title="泛化关系"></a>泛化关系</h2><p>&emsp;泛化(Generalization)关系也就是继承关系，用于描述父类与子类之间的关系，父类又称作基类或超类，子类又称作派生类。在UML中，泛化关系用带空心三角形的直线来表示。<br><img src="http://www.uml.org.cn/oobject/images/20121123112.jpg" alt></p>
@@ -700,7 +700,7 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">03/23</span><a class="archive-post-title" href="/2019/03/23/软件构造笔记Mutable/">软件构造笔记Mutable</a>
+            <span class="archive-post-date">03/23</span><a class="archive-post-title" href="/2019/03/23/SC_Mutable/">软件构造笔记Mutable</a>
         </li>
     
     
@@ -710,7 +710,7 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">03/19</span><a class="archive-post-title" href="/2019/03/19/软件构造笔记实验二/">软件构造笔记实验二</a>
+            <span class="archive-post-date">03/19</span><a class="archive-post-title" href="/2019/03/19/SC实验二&第三章/">SC_Lab2和Chapter3</a>
         </li>
     
     
@@ -723,15 +723,15 @@ top:50vh;
         <div class="sidebar-panel-tags">
     <div class="sidebar-tags-name">
     
+        <span class="sidebar-tag-name" data-tags="小感"><span class="iconfont-archer">&#xe606;</span>小感</span>
+    
         <span class="sidebar-tag-name" data-tags="英语"><span class="iconfont-archer">&#xe606;</span>英语</span>
+    
+        <span class="sidebar-tag-name" data-tags="软件构造笔记"><span class="iconfont-archer">&#xe606;</span>软件构造笔记</span>
     
         <span class="sidebar-tag-name" data-tags="笔记"><span class="iconfont-archer">&#xe606;</span>笔记</span>
     
-        <span class="sidebar-tag-name" data-tags="小感"><span class="iconfont-archer">&#xe606;</span>小感</span>
-    
         <span class="sidebar-tag-name" data-tags="竹林深处"><span class="iconfont-archer">&#xe606;</span>竹林深处</span>
-    
-        <span class="sidebar-tag-name" data-tags="软件构造笔记"><span class="iconfont-archer">&#xe606;</span>软件构造笔记</span>
     
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
@@ -768,11 +768,11 @@ jsonContent:
     
         <span class="sidebar-category-name" data-categories="英语"><span class="iconfont-archer">&#xe60a;</span>英语</span>
     
+        <span class="sidebar-category-name" data-categories="软件构造笔记"><span class="iconfont-archer">&#xe60a;</span>软件构造笔记</span>
+    
         <span class="sidebar-category-name" data-categories="笔记"><span class="iconfont-archer">&#xe60a;</span>笔记</span>
     
         <span class="sidebar-category-name" data-categories="竹林深处"><span class="iconfont-archer">&#xe60a;</span>竹林深处</span>
-    
-        <span class="sidebar-category-name" data-categories="软件构造笔记"><span class="iconfont-archer">&#xe60a;</span>软件构造笔记</span>
     
     </div>
     <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>

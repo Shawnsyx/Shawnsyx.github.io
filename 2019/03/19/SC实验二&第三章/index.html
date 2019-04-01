@@ -22,7 +22,7 @@
     <meta name="description" content>
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>软件构造笔记实验二 · Shawn&#39;s</title>
+    <title>SC_Lab2和Chapter3 · 是非曲吉祥物</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -217,7 +217,7 @@
                 <a href="/">Utopia</a>
             </div>
             <div class="post-title">
-                <a href="#" class="post-name">软件构造笔记实验二</a>
+                <a href="#" class="post-name">SC_Lab2和Chapter3</a>
             </div>
     </div>
     
@@ -247,7 +247,7 @@ height:50vh;
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            软件构造笔记实验二
+            SC_Lab2和Chapter3
             <!-- 404 -->
             
         </h1>
@@ -272,7 +272,7 @@ height:50vh;
                 
                 
                     <div class="post-intro-read">
-                        <span>字数统计: <span class="post-count word-count">1.7k</span>阅读时长: <span class="post-count reading-time">7 min</span></span>
+                        <span>字数统计: <span class="post-count word-count">2.2k</span>阅读时长: <span class="post-count reading-time">10 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
@@ -466,6 +466,28 @@ height:50vh;
 <blockquote>
 <p>Windows -&gt; Preferences -&gt;Java -&gt;Installed JREs -&gt;待使用的JDK -&gt;Edit -&gt;Default VM Arguments文本框中输入:-ea</p>
 </blockquote>
+<h1 id="3-4"><a href="#3-4" class="headerlink" title="3.4"></a>3.4</h1><h2 id="区分override-和-overload"><a href="#区分override-和-overload" class="headerlink" title="区分override 和 overload"></a>区分override 和 overload</h2><p>&emsp;overload用同一个方法名字但是输入不同的参数列表，比如本人在实验中构造的函数<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">Vertex</span><span class="params">(L source,L target, <span class="keyword">int</span> weight)</span> </span>&#123;</span><br><span class="line">	label = source;</span><br><span class="line">    toVertex = <span class="keyword">new</span> HashMap&lt;L, Integer&gt;();</span><br><span class="line">	toVertex.put(target, weight);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">Vertex</span><span class="params">(L name)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.label = name;</span><br><span class="line">	<span class="keyword">this</span>.toVertex = <span class="keyword">new</span> HashMap&lt;L, Integer&gt;();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>&emsp;此外override在run time检查，而overload是在compile阶段就进行检查</p>
+<h1 id="3-5-Equality-in-ADT-and-OOP"><a href="#3-5-Equality-in-ADT-and-OOP" class="headerlink" title="3.5 Equality in ADT and OOP"></a>3.5 Equality in ADT and OOP</h1><h2 id="Equality"><a href="#Equality" class="headerlink" title="Equality"></a>Equality</h2><p>&emsp;等价关系(Equivalence Relation)：自反、对称、传递</p>
+<h3 id="Equality-in-immutable-types"><a href="#Equality-in-immutable-types" class="headerlink" title="Equality in immutable types"></a>Equality in immutable types</h3><ol>
+<li><strong>a equals b if and only if f(a) = f(b)</strong>，即AF映射同样的结果。</li>
+<li>站在外部角度，对两个对象调用任何相同操作，都能得到相同结果，认为等价性成立。<br>举例：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">public class Duration &#123;</span><br><span class="line">    private final int mins;</span><br><span class="line">    private final int secs;</span><br><span class="line">    // Rep invariant:</span><br><span class="line">    //    mins &gt;= 0, secs &gt;= 0</span><br><span class="line">    // Abstraction function:</span><br><span class="line">    //    AF(min, secs) = the span of time of mins minutes and secs seconds</span><br><span class="line"></span><br><span class="line">    /** Make a duration lasting for m minutes and s seconds. */</span><br><span class="line">    public Duration(int m, int s) &#123;</span><br><span class="line">        mins = m; secs = s;</span><br><span class="line">    &#125;</span><br><span class="line">    /** @return length of this duration in seconds */</span><br><span class="line">    public long getLength() &#123;</span><br><span class="line">        return mins*60 + secs;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>其中下列那些等价呢？<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Duration d1 = new Duration (1, 2);</span><br><span class="line">Duration d2 = new Duration (1, 3);</span><br><span class="line">Duration d3 = new Duration (0, 62);</span><br><span class="line">Duration d4 = new Duration (1, 2);</span><br></pre></td></tr></table></figure></p>
+<h2 id="区分equals和“-”"><a href="#区分equals和“-”" class="headerlink" title="区分equals和“==”"></a>区分equals和“==”</h2><p>&emsp;等价性：引用等价性和对象等价性</p>
+<p>&emsp;对基本数据类型，使用<strong>==</strong>判定相等</p>
+<p>&emsp;对对象类型，使用equals.</p>
+<ul>
+<li>== 和内存空间相关。</li>
+</ul>
+<p>再看这个例子</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Duration</span> </span>&#123;</span><br><span class="line">    ...   </span><br><span class="line">    <span class="comment">// Problematic definition of equals()</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Duration that)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.getLength() == that.getLength();        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>结果呢</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Duration d1 = <span class="keyword">new</span> Duration (<span class="number">1</span>, <span class="number">2</span>);</span><br><span class="line">Duration d2 = <span class="keyword">new</span> Duration (<span class="number">1</span>, <span class="number">2</span>);</span><br><span class="line">Object o2 = d2;</span><br><span class="line">d1.equals(d2) → <span class="keyword">true</span></span><br><span class="line">d1.equals(o2) → <span class="keyword">false</span></span><br></pre></td></tr></table></figure>
+<p>&emsp;答案为true和false。d2的类型是Duration，而o2的类型是Object，在类Duration里面的equals无法对这个o2进行等价判断。而且o2和d1指向并非同一内存空间，因此会返回<strong>false</strong>。</p>
+<p>&emsp;上述给的例子是overload而非override。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">public class Duration extends Object &#123;</span><br><span class="line">    // explicit method that we declared:</span><br><span class="line">    public boolean equals(Duration that) &#123;</span><br><span class="line">        return this.getLength() == that.getLength();</span><br><span class="line">    &#125;</span><br><span class="line">    // implicit method inherited from Object:</span><br><span class="line">    public boolean equals(Object that) &#123;</span><br><span class="line">        return this == that;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>&emsp;equals三件套：（1）是否为空 （2）类型是否相同 （3）根据AF设计相等判断。但是有一弊处：在没有AF情况下判断每个域的等价性，这是不合理的。</p>
 
     </article>
     <!-- license  -->
@@ -614,7 +636,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Invariants"><span class="toc-number">1.</span> <span class="toc-text">Invariants</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Immutability"><span class="toc-number">1.1.</span> <span class="toc-text">Immutability</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Immutable-wrappers-around-mutable-data-types"><span class="toc-number">1.2.</span> <span class="toc-text">Immutable wrappers around mutable data types</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Rep-invariant-and-abstraction-function"><span class="toc-number">2.</span> <span class="toc-text">Rep invariant and abstraction function</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Checkint-the-rep-invariant"><span class="toc-number">2.1.</span> <span class="toc-text">Checkint the rep invariant</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#No-null-values-in-the-rep"><span class="toc-number">2.2.</span> <span class="toc-text">No null values in the rep</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Beneficnet-mutation"><span class="toc-number">2.3.</span> <span class="toc-text">Beneficnet mutation</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Documenting-the-AF-RI-and-safety-from-rep-exposure"><span class="toc-number">3.</span> <span class="toc-text">Documenting the AF,RI, and safety from rep exposure</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#What-an-ADT-specification-may-talk-about"><span class="toc-number">3.0.1.</span> <span class="toc-text">What an ADT specification may talk about</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#ADT-invariants-replace-preconditions"><span class="toc-number">4.</span> <span class="toc-text">ADT invariants replace preconditions</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#补充"><span class="toc-number">5.</span> <span class="toc-text">补充</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#SPEC"><span class="toc-number">5.1.</span> <span class="toc-text">SPEC</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Spec-Structure"><span class="toc-number">5.1.1.</span> <span class="toc-text">Spec Structure</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#规约强弱？"><span class="toc-number">5.1.2.</span> <span class="toc-text">规约强弱？</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#漫漫实验路"><span class="toc-number">6.</span> <span class="toc-text">漫漫实验路</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#ea"><span class="toc-number">6.1.</span> <span class="toc-text">-ea</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Invariants"><span class="toc-number">1.</span> <span class="toc-text">Invariants</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Immutability"><span class="toc-number">1.1.</span> <span class="toc-text">Immutability</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Immutable-wrappers-around-mutable-data-types"><span class="toc-number">1.2.</span> <span class="toc-text">Immutable wrappers around mutable data types</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Rep-invariant-and-abstraction-function"><span class="toc-number">2.</span> <span class="toc-text">Rep invariant and abstraction function</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Checkint-the-rep-invariant"><span class="toc-number">2.1.</span> <span class="toc-text">Checkint the rep invariant</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#No-null-values-in-the-rep"><span class="toc-number">2.2.</span> <span class="toc-text">No null values in the rep</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Beneficnet-mutation"><span class="toc-number">2.3.</span> <span class="toc-text">Beneficnet mutation</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Documenting-the-AF-RI-and-safety-from-rep-exposure"><span class="toc-number">3.</span> <span class="toc-text">Documenting the AF,RI, and safety from rep exposure</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#What-an-ADT-specification-may-talk-about"><span class="toc-number">3.0.1.</span> <span class="toc-text">What an ADT specification may talk about</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#ADT-invariants-replace-preconditions"><span class="toc-number">4.</span> <span class="toc-text">ADT invariants replace preconditions</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#补充"><span class="toc-number">5.</span> <span class="toc-text">补充</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#SPEC"><span class="toc-number">5.1.</span> <span class="toc-text">SPEC</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Spec-Structure"><span class="toc-number">5.1.1.</span> <span class="toc-text">Spec Structure</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#规约强弱？"><span class="toc-number">5.1.2.</span> <span class="toc-text">规约强弱？</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#漫漫实验路"><span class="toc-number">6.</span> <span class="toc-text">漫漫实验路</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#ea"><span class="toc-number">6.1.</span> <span class="toc-text">-ea</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-4"><span class="toc-number">7.</span> <span class="toc-text">3.4</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#区分override-和-overload"><span class="toc-number">7.1.</span> <span class="toc-text">区分override 和 overload</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-5-Equality-in-ADT-and-OOP"><span class="toc-number">8.</span> <span class="toc-text">3.5 Equality in ADT and OOP</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Equality"><span class="toc-number">8.1.</span> <span class="toc-text">Equality</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Equality-in-immutable-types"><span class="toc-number">8.1.1.</span> <span class="toc-text">Equality in immutable types</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#区分equals和“-”"><span class="toc-number">8.2.</span> <span class="toc-text">区分equals和“==”</span></a></li></ol></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
@@ -723,7 +745,7 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">03/23</span><a class="archive-post-title" href="/2019/03/23/软件构造笔记Mutable/">软件构造笔记Mutable</a>
+            <span class="archive-post-date">03/23</span><a class="archive-post-title" href="/2019/03/23/SC_Mutable/">软件构造笔记Mutable</a>
         </li>
     
     
@@ -733,7 +755,7 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">03/19</span><a class="archive-post-title" href="/2019/03/19/软件构造笔记实验二/">软件构造笔记实验二</a>
+            <span class="archive-post-date">03/19</span><a class="archive-post-title" href="/2019/03/19/SC实验二&第三章/">SC_Lab2和Chapter3</a>
         </li>
     
     
@@ -746,15 +768,15 @@ top:50vh;
         <div class="sidebar-panel-tags">
     <div class="sidebar-tags-name">
     
+        <span class="sidebar-tag-name" data-tags="小感"><span class="iconfont-archer">&#xe606;</span>小感</span>
+    
         <span class="sidebar-tag-name" data-tags="英语"><span class="iconfont-archer">&#xe606;</span>英语</span>
+    
+        <span class="sidebar-tag-name" data-tags="软件构造笔记"><span class="iconfont-archer">&#xe606;</span>软件构造笔记</span>
     
         <span class="sidebar-tag-name" data-tags="笔记"><span class="iconfont-archer">&#xe606;</span>笔记</span>
     
-        <span class="sidebar-tag-name" data-tags="小感"><span class="iconfont-archer">&#xe606;</span>小感</span>
-    
         <span class="sidebar-tag-name" data-tags="竹林深处"><span class="iconfont-archer">&#xe606;</span>竹林深处</span>
-    
-        <span class="sidebar-tag-name" data-tags="软件构造笔记"><span class="iconfont-archer">&#xe606;</span>软件构造笔记</span>
     
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
@@ -791,11 +813,11 @@ jsonContent:
     
         <span class="sidebar-category-name" data-categories="英语"><span class="iconfont-archer">&#xe60a;</span>英语</span>
     
+        <span class="sidebar-category-name" data-categories="软件构造笔记"><span class="iconfont-archer">&#xe60a;</span>软件构造笔记</span>
+    
         <span class="sidebar-category-name" data-categories="笔记"><span class="iconfont-archer">&#xe60a;</span>笔记</span>
     
         <span class="sidebar-category-name" data-categories="竹林深处"><span class="iconfont-archer">&#xe60a;</span>竹林深处</span>
-    
-        <span class="sidebar-category-name" data-categories="软件构造笔记"><span class="iconfont-archer">&#xe60a;</span>软件构造笔记</span>
     
     </div>
     <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
