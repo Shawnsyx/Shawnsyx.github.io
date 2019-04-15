@@ -78,6 +78,8 @@
     <link rel="preload" href="/css/style.css?v=20180824" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <link rel="stylesheet" href="/css/mobile.css?v=20180824" media="(max-width: 980px)">
     
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    
     <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
 /* This file is meant as a standalone workflow for
 - testing support for link[rel=preload]
@@ -201,10 +203,8 @@
 </head>
 
     
-        <body class="home-body">
     
-    
-<header class="header index-header">
+<header class="header">
 
     <div class="read-progress"></div>
     <div class="header-sidebar-menu">&#xe775;</div>
@@ -220,34 +220,21 @@
 
 
 
-
-height:50vh;
 ">
     
     <!-- 主页  -->
-    
-    
-    <!-- 文章页  -->
             
     <div class="site-intro-placeholder"></div>
-    <div class="site-intro-img" style="background-image: url(/intro/camera.jpg)"></div>
+    <div class="site-intro-img" style="background-image: url(/)"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            Utopia
-            <!-- 文章页  -->
-            
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
-            
-            
-                手寄七弦桐，目送归鸿
-            
-            <!-- 文章页  -->
             
         </p>
         <!-- 文章页meta -->
@@ -359,41 +346,6 @@ height:50vh;
     
     
     <article class="index-post">
-        <a class="abstract-title" href="/2019/03/19/鄙人杂谈/">
-            
-                <span class="stick-top iconfont-archer">&#xe63d;</span>
-                
-                <span>鄙人胡诌</span>
-        </a>
-        <div class="abstract-content">
-            
-  自修自持莫道此间非彼岸，即心即佛须知东土是西天
-
-
- &ensp; 羡艳着橙子和钟哥的博客，自己也心痒痒，谁所菜鸡不能有自己的鸡笼？于是乎我也按着教程一步一步地de着bug，学着毫无技术含量的操作。&ensp;或许写博客当有中学时代拿着尺子和铅笔一点点打格整理笔记的美感？我挺喜欢手字笔录的方式，但怎奈这越学越深的计算机世界不给你手字笔录的时间让你横平竖直工笔正楷地整理笔记。&ensp;《离骚》中有“朝濯发于汤谷兮，夕晞余身兮九阳”，闭目仿佛看见一身高八尺有余形貌昳丽的长发美男于光中背对着你，可瞅瞅我现在满脸油光，痘印未消，面如土色，发型凌乱，眼小无神，体形消瘦······（再说下去...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/03/19</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="竹林深处">竹林深处</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
         <a class="abstract-title" href="/2019/04/13/夜夜空里/">
             
                 <span>夜夜空里</span>
@@ -423,310 +375,10 @@ height:50vh;
         </div>
     </article>
     
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/03/30/English-3-30/">
-            
-                <span>English_3.30</span>
-        </a>
-        <div class="abstract-content">
-            &emsp;第一篇英语笔记，道阻且长。
-&emsp;错的最多的就是每篇的压轴题：6选3，几乎没有全对过，哎呀我的心呀。
-TPO 11 Reading
-Ancient Egyptian Sculpture&emsp;大体讲了埃及建筑物的特点，新词frontality，无论材质如何（stone，wooden or metal），都体现这个“正面性”，展示雕塑的姿态。在此基础上探讨了雕塑decorative作用等等……
-&emsp;错题2，事实信息题,根据提问，应该从段落的文句中寻找答案，冒号之后罗列雕塑不受欢迎的原因。
-
-Why did the Egyptians not develop s...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/03/30</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="英语">英语</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/03/30/UML类图学习/">
-            
-                <span>UML类图学习</span>
-        </a>
-        <div class="abstract-content">
-            阅读材料来自于：深入浅出UML类图&emsp;类图用于描述系统中所包含的类以及它们之间的相互关系，帮助人们简化对系统的理解，它是系统分析和设计阶段的重要产物，也是系统编码和测试的重要模型依据。
-
-类&emsp;类(Class)封装了数据和行为，是面向对象的重要组成部分，它是具有相同属性、操作、关系的对象集合的总称。在软件系统运行时，类将被实例化成对象(Object)，对象对应于某个具体的事物，是类的实例(Instance)。&emsp;类图(Class Diagram)使用出现在系统中的不同类来描述系统的静态结构，它用来描述不同的类以及它们之间的关系。
-
-类的UML图示&emsp;在UM...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/03/30</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="笔记">笔记</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/03/27/致那些人们/">
-            
-                <span>致那些人们</span>
-        </a>
-        <div class="abstract-content">
-            
-Those who are deadAre not deadThey’re just living in my head.And since i fellFor that spellI am living there as well                             ——Coldplay 《42》
-
-&emsp;致那些失去亲爱的人的人们。
-&emsp;其实想想人们都将往那里走去，“死亡是一座灯塔”。人常说死者离开人世走入记忆，但生者如何依托死者的记忆活着呢？&emsp;遇到这种事，想必你没法痛痛快快地宣泄吧？温暖的东西恐怕我不大能写出来了，那种东西在我眼里几乎为骗...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/03/27</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="竹林深处">竹林深处</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/03/23/SC_Mutable/">
-            
-                <span>软件构造笔记Mutable</span>
-        </a>
-        <div class="abstract-content">
-            <p><strong>Classifying Types and Operations</strong><br>
-        </p></div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/03/23</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="软件构造笔记">软件构造笔记</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/03/22/JAVA学习记录/">
-            
-                <span>JAVA学习记录</span>
-        </a>
-        <div class="abstract-content">
-            <p>&emsp;Lab2的要求看得我一头雾水，又是接口又是不变量的，往日中学时代被老师手把手教的日子果真一去不复返了,不过这种大学的学习方式可能更接近于以后人生中的独自上下求索的艰辛历程吧……
-        </p></div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/03/22</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="笔记">笔记</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/03/19/SC实验二&第三章/">
-            
-                <span>SC_Lab2和Chapter3</span>
-        </a>
-        <div class="abstract-content">
-            <p>  阅读材料来自于MIT的Software Construction课程 <a href="http://web.mit.edu/6.031/www/sp18/classes/11-abstraction-functions-rep-invariants/" target="_blank" rel="noopener">Reading 11: Abstraction Functions &amp; Rep Invariants</a>.<br><br>要点如下:
-        </p></div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/03/19</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="软件构造笔记">软件构造笔记</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
     <!-- paginator  -->
     
 </main>
             <!-- profile -->
-            
-            <div class="profile">
-    <img class="profile-avatar" alt="avatar" src="/avatar/1.png">
-    <div class="profile-name">霄先生吃元宵</div>
-    
-    <div class="profile-signature">
-        Relove and relax :)
-    </div>
-    
-    
-    <div class="profile-social">
-        
-    
-        
-            
-                <a href="mailto:997948850@qq.com" class="iconfont-archer email" title="email"></a>
-            
-        
-    
-        
-            
-                <a href="//github.com/Shawnsyx" class="iconfont-archer github" target="_blank" title="github"></a>
-            
-        
-    
-        
-            
-                <span class="iconfont-archer wechat" title="wechat">
-                  
-                  <img class="profile-qr" src="/assets/wechat.jpg">
-                </span>
-            
-        
-    
-        
-            
-                <span class="iconfont-archer qq" title="qq">
-                  
-                  <img class="profile-qr" src="/assets/qq.jpg">
-                </span>
-            
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-            
-                <a href="/atom.xml" class="iconfont-archer rss" target="_blank" title="rss"></a>
-            
-        
-    
-
-    </div>
-    
-    
-        <div class="friends">
-            <div>FRIENDS</div>
-            
-                
-                    <span>
-                        <a href="https://1170300229.github.io/" target="_black">橙子</a>
-                    </span>
-                
-            
-                
-                    <span>
-                        <a href="http://evanclark.top/" target="_black">钟哥</a>
-                    </span>
-                
-            
-                
-                    <span>
-                        <a href="https://blog.csdn.net/fzhvampire" target="_black">肥肥</a>
-                    </span>
-                
-            
-        </div>
-    
-    
-        <div class="about-me">
-            <a href="/about">ABOUT ME</a>
-        </div>
-    
-</div>
             
         </div>
         <footer class="footer footer-unloaded">
