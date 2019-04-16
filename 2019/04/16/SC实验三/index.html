@@ -272,7 +272,7 @@ height:50vh;
                 
                 
                     <div class="post-intro-read">
-                        <span>字数统计: <span class="post-count word-count">740</span>阅读时长: <span class="post-count reading-time">2 min</span></span>
+                        <span>字数统计: <span class="post-count word-count">743</span>阅读时长: <span class="post-count reading-time">2 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
@@ -410,18 +410,30 @@ height:50vh;
 <li>向特定轨道上增加一个物体（不考虑物理位置） </li>
 <li>增加中心点物体和一个轨道物体之间的关系 </li>
 <li>增加两个轨道物体之间的关系 </li>
-<li>从外部文件读取数据构造轨道系统对象 <h2 id="Track"><a href="#Track" class="headerlink" title="Track"></a>Track</h2>&emsp;<strong>Immutable</strong>的ADT。<br>&emsp;需要设计rep：1.半径<h2 id="L-（CircularOrbit-lt-L-E-gt-中的L）"><a href="#L-（CircularOrbit-lt-L-E-gt-中的L）" class="headerlink" title="L （CircularOrbit&lt;L,E&gt;中的L）"></a>L （CircularOrbit&lt;L,E&gt;中的L）</h2>&emsp;所设计的表征中心点物体的类。</li>
+<li>从外部文件读取数据构造轨道系统对象 </li>
+</ul>
+<h2 id="Track"><a href="#Track" class="headerlink" title="Track"></a>Track</h2><p>&emsp;<strong>Immutable</strong>的ADT。<br>&emsp;需要设计rep：1.半径</p>
+<h2 id="L（CircularOrbit-lt-L-E-gt-中的L）"><a href="#L（CircularOrbit-lt-L-E-gt-中的L）" class="headerlink" title="L（CircularOrbit&lt;L,E&gt;中的L）"></a>L（CircularOrbit&lt;L,E&gt;中的L）</h2><p>&emsp;所设计的表征中心点物体的类。</p>
+<ul>
 <li>StellarSystem：中心点物体为恒星 </li>
 <li>AtomStructure：中心点物体为原子核 </li>
-<li>SocialNetworkCircle：中心点物体为人 <h2 id="PhysicalObject"><a href="#PhysicalObject" class="headerlink" title="PhysicalObject"></a>PhysicalObject</h2>&emsp;<strong>Immutable的</strong>ADT。<br>&emsp;实现 ConcreteCircularOrbit&lt;L,E&gt;中的 E，即代表分布在不同轨道上的物 体类 PhysicalObject。可以是接口，也可以是抽象类。 考虑到不同应用中包含不同类型的轨道物体，需从 PhysicalObject 派生子 类型，通过 override 实现 PhysicalObject 中的各个接口方法或抽象方法，也可 根据应用需求来增加子类的特有属性和方法。</li>
+<li>SocialNetworkCircle：中心点物体为人 </li>
+</ul>
+<h2 id="PhysicalObject"><a href="#PhysicalObject" class="headerlink" title="PhysicalObject"></a>PhysicalObject</h2><p>&emsp;<strong>Immutable的</strong>ADT。<br>&emsp;实现 ConcreteCircularOrbit&lt;L,E&gt;中的 E，即代表分布在不同轨道上的物 体类 PhysicalObject。可以是接口，也可以是抽象类。 考虑到不同应用中包含不同类型的轨道物体，需从 PhysicalObject 派生子 类型，通过 override 实现 PhysicalObject 中的各个接口方法或抽象方法，也可 根据应用需求来增加子类的特有属性和方法。</p>
+<ul>
 <li>StellarSystem：轨道物体为行星 </li>
 <li>AtomStructure：轨道物体为电子 </li>
-<li>SocialNetworkCircle：轨道物体为人<h2 id="可复用的API设计"><a href="#可复用的API设计" class="headerlink" title="可复用的API设计"></a>可复用的API设计</h2>&emsp;API-Application Programming Interface. 何为API→<a href="https://blog.csdn.net/cumtdeyurenjie/article/details/80211896" target="_blank" rel="noopener">点此了解</a>。</li>
-<li>计算多轨道系统中各轨道上物体分布的熵值。<code>double getObjectDistributionEntropy(CircularOrbit c)</code></li>
-<li>计算任意两个物体之间的最短逻辑距离。 <code>int getLogicalDistance (CircularOrbit c, E e1, E e2)</code>若两物体无联系，距离无穷大。（Lab1中P3已实现该功能）</li>
-<li>计算任意两个物体之间的物理距离。（若有具体位置，可在直角坐标系中计算）<code>double getPhysicalDistance (CircularOrbit c, E e1, E e2)</code></li>
-<li>//TODO 计算两个多轨道系统之间的差异<h2 id="第三方API复用"><a href="#第三方API复用" class="headerlink" title="第三方API复用"></a>第三方API复用</h2>&emsp;实现可视化<h2 id="设计模式应用"><a href="#设计模式应用" class="headerlink" title="设计模式应用"></a>设计模式应用</h2>(1) 构造 Track、PhysicalObject 等对象时，请使用 <strong>factory method</strong> 设计模式。<br>(2) 构造 ConcreteCircularOrbit 对象时，针对不同应用中所需的不同类型的 L 和 E，使用 <strong>abstract factory</strong> 或 <strong>builder</strong> 设计模式。<br>(3) <strong>Iterator</strong>设计模式,在遍历各PhysicalObject对象时使用。<br>(4) 可复用API时遵循<strong>façade</strong> 设计模式，将所有 API 放置在 helper类CircularOrbitAPIs当中<br>(5) StellarSystem 应用中使用<strong>decorator</strong>设计模式<br>(6) AtomStructure 应用中，请使用 <strong>state</strong> 和 <strong>memento</strong> 设计模式管理电子跃迁 的状态，并可进行状态的恢复。意即：可保存电子每次跃迁前后的轨道信息。</li>
+<li>SocialNetworkCircle：轨道物体为人</li>
 </ul>
+<h2 id="可复用的API设计"><a href="#可复用的API设计" class="headerlink" title="可复用的API设计"></a>可复用的API设计</h2><p>&emsp;API-Application Programming Interface. 何为API→<a href="https://blog.csdn.net/cumtdeyurenjie/article/details/80211896" target="_blank" rel="noopener">点此了解</a>。</p>
+<ul>
+<li>计算多轨道系统中各轨道上物体分布的熵值。<br>&emsp;<code>double getObjectDistributionEntropy(CircularOrbit c)</code></li>
+<li>计算任意两个物体之间的最短逻辑距离。<br>&emsp;<code>int getLogicalDistance (CircularOrbit c, E e1, E e2)</code>若两物体无联系，距离无穷大。（Lab1中P3已实现该功能）</li>
+<li>计算任意两个物体之间的物理距离。（若有具体位置，可在直角坐标系中计算）<br>&emsp;<code>double getPhysicalDistance (CircularOrbit c, E e1, E e2)</code></li>
+<li>//TODO 计算两个多轨道系统之间的差异</li>
+</ul>
+<h2 id="第三方API复用"><a href="#第三方API复用" class="headerlink" title="第三方API复用"></a>第三方API复用</h2><p>&emsp;实现可视化</p>
+<h2 id="设计模式应用"><a href="#设计模式应用" class="headerlink" title="设计模式应用"></a>设计模式应用</h2><p>(1) 构造 Track、PhysicalObject 等对象时，请使用 <strong>factory method</strong> 设计模式。<br>(2) 构造 ConcreteCircularOrbit 对象时，针对不同应用中所需的不同类型的 L 和 E，使用 <strong>abstract factory</strong> 或 <strong>builder</strong> 设计模式。<br>(3) <strong>Iterator</strong>设计模式,在遍历各PhysicalObject对象时使用。<br>(4) 可复用API时遵循<strong>façade</strong> 设计模式，将所有 API 放置在 helper类CircularOrbitAPIs当中<br>(5) StellarSystem 应用中使用<strong>decorator</strong>设计模式<br>(6) AtomStructure 应用中，请使用 <strong>state</strong> 和 <strong>memento</strong> 设计模式管理电子跃迁 的状态，并可进行状态的恢复。意即：可保存电子每次跃迁前后的轨道信息。</p>
 
     </article>
     <!-- license  -->
@@ -580,7 +592,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#不同对象的面向复用的设计-Reusability"><span class="toc-number">1.</span> <span class="toc-text">不同对象的面向复用的设计(Reusability)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#CircularOrbit-lt-L-E-gt"><span class="toc-number">1.1.</span> <span class="toc-text">CircularOrbit&lt;L,E&gt;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Track"><span class="toc-number">1.2.</span> <span class="toc-text">Track</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#L-（CircularOrbit-lt-L-E-gt-中的L）"><span class="toc-number">1.3.</span> <span class="toc-text">L （CircularOrbit&lt;L,E&gt;中的L）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PhysicalObject"><span class="toc-number">1.4.</span> <span class="toc-text">PhysicalObject</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#可复用的API设计"><span class="toc-number">1.5.</span> <span class="toc-text">可复用的API设计</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第三方API复用"><span class="toc-number">1.6.</span> <span class="toc-text">第三方API复用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#设计模式应用"><span class="toc-number">1.7.</span> <span class="toc-text">设计模式应用</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#不同对象的面向复用的设计-Reusability"><span class="toc-number">1.</span> <span class="toc-text">不同对象的面向复用的设计(Reusability)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#CircularOrbit-lt-L-E-gt"><span class="toc-number">1.1.</span> <span class="toc-text">CircularOrbit&lt;L,E&gt;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Track"><span class="toc-number">1.2.</span> <span class="toc-text">Track</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#L（CircularOrbit-lt-L-E-gt-中的L）"><span class="toc-number">1.3.</span> <span class="toc-text">L（CircularOrbit&lt;L,E&gt;中的L）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PhysicalObject"><span class="toc-number">1.4.</span> <span class="toc-text">PhysicalObject</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#可复用的API设计"><span class="toc-number">1.5.</span> <span class="toc-text">可复用的API设计</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第三方API复用"><span class="toc-number">1.6.</span> <span class="toc-text">第三方API复用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#设计模式应用"><span class="toc-number">1.7.</span> <span class="toc-text">设计模式应用</span></a></li></ol></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
@@ -728,15 +740,15 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="小感"><span class="iconfont-archer">&#xe606;</span>小感</span>
     
-        <span class="sidebar-tag-name" data-tags="英语"><span class="iconfont-archer">&#xe606;</span>英语</span>
-    
         <span class="sidebar-tag-name" data-tags="笔记"><span class="iconfont-archer">&#xe606;</span>笔记</span>
     
         <span class="sidebar-tag-name" data-tags="软件构造笔记"><span class="iconfont-archer">&#xe606;</span>软件构造笔记</span>
     
-        <span class="sidebar-tag-name" data-tags="随笔"><span class="iconfont-archer">&#xe606;</span>随笔</span>
+        <span class="sidebar-tag-name" data-tags="英语"><span class="iconfont-archer">&#xe606;</span>英语</span>
     
         <span class="sidebar-tag-name" data-tags="竹林深处"><span class="iconfont-archer">&#xe606;</span>竹林深处</span>
+    
+        <span class="sidebar-tag-name" data-tags="随笔"><span class="iconfont-archer">&#xe606;</span>随笔</span>
     
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
@@ -771,11 +783,11 @@ jsonContent:
         <div class="sidebar-panel-categories">
     <div class="sidebar-categories-name">
     
-        <span class="sidebar-category-name" data-categories="英语"><span class="iconfont-archer">&#xe60a;</span>英语</span>
-    
         <span class="sidebar-category-name" data-categories="笔记"><span class="iconfont-archer">&#xe60a;</span>笔记</span>
     
         <span class="sidebar-category-name" data-categories="软件构造笔记"><span class="iconfont-archer">&#xe60a;</span>软件构造笔记</span>
+    
+        <span class="sidebar-category-name" data-categories="英语"><span class="iconfont-archer">&#xe60a;</span>英语</span>
     
         <span class="sidebar-category-name" data-categories="竹林深处"><span class="iconfont-archer">&#xe60a;</span>竹林深处</span>
     
