@@ -272,7 +272,7 @@ height:50vh;
                 
                 
                     <div class="post-intro-read">
-                        <span>字数统计: <span class="post-count word-count">15</span>阅读时长: <span class="post-count reading-time">1 min</span></span>
+                        <span>字数统计: <span class="post-count word-count">225</span>阅读时长: <span class="post-count reading-time">1 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
@@ -401,7 +401,19 @@ height:50vh;
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <p>&emsp;实验四开始，一点点学习异常处理！</p>
+        <p>&emsp;实验四开始，一点点学习异常处理！<br>&emsp;首先区分异常（Exception）和错误（Error）</p>
+<blockquote>
+<p>The Error class describes internal system errors and resource exhaustion situations inside the Java runtime system (e.g., VirtualMachineError, LinkageError) that rarely occur. </p>
+</blockquote>
+<p>&emsp;内部错误：程序员通常无能为力，一旦发生，想办法让程序优雅的结束 。而对于异常：</p>
+<blockquote>
+<p>The Exception class describes the error caused by your program (e.g. FileNotFoundException, IOException). </p>
+</blockquote>
+<p>&emsp;异常由于自己程序导致的问题，可以捕获、可以处理。<br><strong>Error</strong>举例：User input errors, Device errors, Physical limitations.</p>
+<p>&emsp; 既然Error我们无能为力， 那就转向关注我们能够处理的Exception。</p>
+<hr>
+<h1 id="Exception-Handling"><a href="#Exception-Handling" class="headerlink" title="Exception Handling"></a>Exception Handling</h1><p>Exception分为unchecked和checked两类，分类如下：<br><img src="/images/SC/ExceptionHierarchy.jpg" alt="exceptionHierarchy"><br>程序员可以通过抛出unchecked exception来声明无法解决，不在自己程序处理能力范围内的异常，而checked exception则是用户所期待的，也是需要程序员去处理的。</p>
+<p>如下所示：<br><img src="/images/SC/exceptiontype.jpg" alt="exceptiontype"></p>
 
     </article>
     <!-- license  -->
@@ -560,7 +572,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Exception-Handling"><span class="toc-number">1.</span> <span class="toc-text">Exception Handling</span></a></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
