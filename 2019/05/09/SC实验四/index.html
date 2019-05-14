@@ -272,7 +272,7 @@ height:50vh;
                 
                 
                     <div class="post-intro-read">
-                        <span>字数统计: <span class="post-count word-count">225</span>阅读时长: <span class="post-count reading-time">1 min</span></span>
+                        <span>字数统计: <span class="post-count word-count">494</span>阅读时长: <span class="post-count reading-time">2 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
@@ -414,6 +414,13 @@ height:50vh;
 <hr>
 <h1 id="Exception-Handling"><a href="#Exception-Handling" class="headerlink" title="Exception Handling"></a>Exception Handling</h1><p>Exception分为unchecked和checked两类，分类如下：<br><img src="/images/SC/ExceptionHierarchy.jpg" alt="exceptionHierarchy"><br>程序员可以通过抛出unchecked exception来声明无法解决，不在自己程序处理能力范围内的异常，而checked exception则是用户所期待的，也是需要程序员去处理的。</p>
 <p>如下所示：<br><img src="/images/SC/exceptiontype.jpg" alt="exceptiontype"></p>
+<h1 id="实验四"><a href="#实验四" class="headerlink" title="实验四"></a>实验四</h1><h2 id="自定义异常"><a href="#自定义异常" class="headerlink" title="自定义异常"></a>自定义异常</h2><h3 id="科学记数法表示"><a href="#科学记数法表示" class="headerlink" title="科学记数法表示"></a>科学记数法表示</h3><p>&emsp;根据WZJ老师的建议，可以直接将不符合科学记数法的输入转化为符合要求的数据，也可以<strong>Garbage in, garbage out</strong>般的<strong>Fail Fast</strong>,而我本人选择直接抛出异常信息，并且直接让用户重新操作。</p>
+<p>值得注意的是，在操作过程中，如果try_catch语句中<code>catch(Exception e)</code>,那么无论中间有什么自定义exception都会被覆盖，并且不能输出相关的信息。首先，错误样例如下：<br><img src="/images/exception/1.jpg" alt="exceptiontype"><br>如果在总的构造系统中这样catch异常</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span> &#123;  </span><br><span class="line">  String encoding =<span class="string">"UTF-8"</span>;</span><br><span class="line">  File file = <span class="keyword">new</span> File(filePath);</span><br><span class="line">  <span class="keyword">if</span>(file.isFile() &amp;&amp; file.exists()) &#123;  </span><br><span class="line">  ······     </span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">else</span> &#123;</span><br><span class="line">    System.out.println(<span class="string">"Can't find the file"</span>);</span><br><span class="line">  &#125;</span><br><span class="line">    </span><br><span class="line">&#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">  e.printStackTrace();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>则根据文件得到异常信息是这样的：<br><img src="/images/exception/2.jpg" alt="exceptiontype"></p>
+<p>而如果这样写的话<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span> &#123;  </span><br><span class="line">      ······</span><br><span class="line">    &#125; <span class="keyword">catch</span> (NotationFormatException e) &#123;</span><br><span class="line">      System.out.println(e.getNumber());</span><br><span class="line">      System.out.println(<span class="string">"请修改按要求文件后重新读入"</span>);</span><br><span class="line">    &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">      System.out.println(<span class="string">"IOE EXCEPTION!!!"</span>);</span><br><span class="line">      e.printStackTrace();</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
+<p>则会出现异常的信息：<br><img src="/images/exception/3.jpg" alt="exceptiontype"></p>
+<hr>
 
     </article>
     <!-- license  -->
@@ -572,7 +579,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Exception-Handling"><span class="toc-number">1.</span> <span class="toc-text">Exception Handling</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Exception-Handling"><span class="toc-number">1.</span> <span class="toc-text">Exception Handling</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#实验四"><span class="toc-number">2.</span> <span class="toc-text">实验四</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#自定义异常"><span class="toc-number">2.1.</span> <span class="toc-text">自定义异常</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#科学记数法表示"><span class="toc-number">2.1.1.</span> <span class="toc-text">科学记数法表示</span></a></li></ol></li></ol></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
