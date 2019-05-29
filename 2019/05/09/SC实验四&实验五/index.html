@@ -272,7 +272,7 @@ height:50vh;
                 
                 
                     <div class="post-intro-read">
-                        <span>字数统计: <span class="post-count word-count">703</span>阅读时长: <span class="post-count reading-time">2 min</span></span>
+                        <span>字数统计: <span class="post-count word-count">1.3k</span>阅读时长: <span class="post-count reading-time">4 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
@@ -423,9 +423,27 @@ height:50vh;
 <hr>
 <p>  <a href="https://blog.csdn.net/qq_42072311/article/details/80923512" target="_blank" rel="noopener">log4j</a></p>
 <h1 id="实验五"><a href="#实验五" class="headerlink" title="实验五"></a>实验五</h1><h2 id="命名规范"><a href="#命名规范" class="headerlink" title="命名规范"></a>命名规范</h2><p>&emsp;在实验中要求按照特定代码规范进行走查修改。这里简单学习了Java命名规范。<br><a href="https://www.cnblogs.com/zshibo/p/8007123.html" target="_blank" rel="noopener">查看详细信息</a></p>
+<hr>
 <h2 id="Set与List的恩怨"><a href="#Set与List的恩怨" class="headerlink" title="Set与List的恩怨"></a>Set与List的恩怨</h2><p>除了众所周知的Set不存放重复元素外，两者在contains方法检索元素时差别也巨大！！！<br>在第一个版本利用graphset元素时，用的是<code>List&lt;Edge&lt;L&gt;&gt; edges</code>,读取两万数据边的时候就花费10s左右，其中重要一点就是有诸多</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (!edges.contains(e)) &#123;</span><br><span class="line">  <span class="keyword">if</span> (weight &gt; <span class="number">0</span>) &#123;</span><br><span class="line">    edges.add(e);</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
 <p>利用<strong>contains</strong>检索的判断语句，而换了之后发现效率大大提升，构造80万的数据也只要1分钟左右，现在考虑把其他List也换成Set！！！<br>  &emsp;<strong>由衷感谢YSC同学的提醒与支持！！！</strong></p>
+<hr>
+<h2 id="再学Strategy设计模式"><a href="#再学Strategy设计模式" class="headerlink" title="再学Strategy设计模式"></a>再学Strategy设计模式</h2><p>&emsp;在实验中要求使用策略模式采用不同读写策略来进行对文本的操作。于是在此复习该设计模式。（本人在实验3和4没有用到此模式）<br>&emsp;<strong>组成：</strong></p>
+<ol>
+<li>Strategy(策略)：代表”算法”这一抽象角色，定义了实现策略所必需的接口(API)。</li>
+<li>ConcreteStrategy(具体的策略)：表示具体的算法，实现了Strategy中声明的方法，即提供策略的具体实现。</li>
+<li>Context(上下文)：负责使用Strategy角色，Context中保存了ConcreteStrategy角色的实例，并使用它去实现需求。</li>
+</ol>
+<p>类图如下:<br><img src="/images/SC/strategy.jpg" alt="strategy"></p>
+<hr>
+<h2 id="读写策略"><a href="#读写策略" class="headerlink" title="读写策略"></a>读写策略</h2><h3 id="BufferedReader"><a href="#BufferedReader" class="headerlink" title="BufferedReader"></a>BufferedReader</h3><p>原理：BufferedReader和BufferedWriter出现的目的是为了对FileReader以及FileWriter的读写操作进行增强.原理类似于使用StringBuilder，是把数据先放入他们的一个char数组中，然后再操作char数组。<br>&emsp;使用缓冲区的字符流是使用了装饰着模式对FileReader等进行功能上的增强，装饰者模式与继承都可以实现功能上的增强，但是装饰者可以做得更加的灵活，也不会使继承树变得太过复杂。</p>
+<p>&emsp;第一开始采用的读入 BufferedReader 和 BufferedWriter。<br>注意一下写文件并不会写入空行，整个文件一连串下来非常爆炸。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">File target = <span class="keyword">new</span> File(<span class="string">"test/file/SocialNetworkCircle.txt"</span>);</span><br><span class="line">   <span class="keyword">try</span> &#123;</span><br><span class="line">     BufferedWriter bw = <span class="keyword">new</span> BufferedWriter(<span class="keyword">new</span> FileWriter(target));</span><br><span class="line">     <span class="keyword">for</span> (String i : info) &#123;</span><br><span class="line">       bw.write(i);</span><br><span class="line">     &#125;</span><br><span class="line">     bw.close();</span><br><span class="line"> ······</span><br></pre></td></tr></table></figure></p>
+<p>&emsp;采用加上写入一换行符试试。<br><code>bw.write(&quot;\n&quot;);</code><br>！！！在这里发现如果<code>info</code>为<code>Set&lt;String&gt;</code>类型，读入后顺序错乱，但是如果用<code>ArrayList</code>实现，就会按照存入顺序来写入文件，十分美观。<br>*<em>NOTE</em>:</p>
+<ol>
+<li>当关闭BufferedReader的时候，传入作为参数的reader也会跟着关闭。</li>
+<li>BufferedReader具有一个特殊的方法readerLine（），功能是读取一行，原理是从char数组中读取，判断是否遇到换行符，是的话返回。</li>
+<li>本质就是为底层字符输入输出流添加缓冲功能、先将底层流中的要读取或者要写入的数据先以一次读取一组的形式来讲数据读取或者写入到buffer中、再对buffer进行操作、这样不但效率、还能节省资源。</li>
+</ol>
 
     </article>
     <!-- license  -->
@@ -589,7 +607,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Exception-Handling"><span class="toc-number">1.</span> <span class="toc-text">Exception Handling</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#实验四"><span class="toc-number">2.</span> <span class="toc-text">实验四</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#自定义异常"><span class="toc-number">2.1.</span> <span class="toc-text">自定义异常</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#科学记数法表示"><span class="toc-number">2.1.1.</span> <span class="toc-text">科学记数法表示</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#实验五"><span class="toc-number">3.</span> <span class="toc-text">实验五</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#命名规范"><span class="toc-number">3.1.</span> <span class="toc-text">命名规范</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Set与List的恩怨"><span class="toc-number">3.2.</span> <span class="toc-text">Set与List的恩怨</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Exception-Handling"><span class="toc-number">1.</span> <span class="toc-text">Exception Handling</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#实验四"><span class="toc-number">2.</span> <span class="toc-text">实验四</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#自定义异常"><span class="toc-number">2.1.</span> <span class="toc-text">自定义异常</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#科学记数法表示"><span class="toc-number">2.1.1.</span> <span class="toc-text">科学记数法表示</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#实验五"><span class="toc-number">3.</span> <span class="toc-text">实验五</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#命名规范"><span class="toc-number">3.1.</span> <span class="toc-text">命名规范</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Set与List的恩怨"><span class="toc-number">3.2.</span> <span class="toc-text">Set与List的恩怨</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#再学Strategy设计模式"><span class="toc-number">3.3.</span> <span class="toc-text">再学Strategy设计模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#读写策略"><span class="toc-number">3.4.</span> <span class="toc-text">读写策略</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#BufferedReader"><span class="toc-number">3.4.1.</span> <span class="toc-text">BufferedReader</span></a></li></ol></li></ol></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
