@@ -422,7 +422,8 @@ height:50vh;
 <p>则会出现异常的信息：<br><img src="/images/exception/3.jpg" alt="exceptiontype"></p>
 <hr>
 <p>  <a href="https://blog.csdn.net/qq_42072311/article/details/80923512" target="_blank" rel="noopener">log4j</a></p>
-<h1 id="实验五"><a href="#实验五" class="headerlink" title="实验五"></a>实验五</h1><h2 id="命名规范"><a href="#命名规范" class="headerlink" title="命名规范"></a>命名规范</h2><p>&emsp;在实验中要求按照特定代码规范进行走查修改。这里简单学习了Java命名规范。<br><a href="https://www.cnblogs.com/zshibo/p/8007123.html" target="_blank" rel="noopener">查看详细信息</a></p>
+<h1 id="实验五"><a href="#实验五" class="headerlink" title="实验五"></a>实验五</h1><h2 id="工具安装"><a href="#工具安装" class="headerlink" title="工具安装"></a>工具安装</h2><p><a href="https://blog.csdn.net/qq_41626826/article/details/80588792" target="_blank" rel="noopener">VisualVM和MemoryAnalyzer（MAT）</a></p>
+<h2 id="命名规范"><a href="#命名规范" class="headerlink" title="命名规范"></a>命名规范</h2><p>&emsp;在实验中要求按照特定代码规范进行走查修改。这里简单学习了Java命名规范。<br><a href="https://www.cnblogs.com/zshibo/p/8007123.html" target="_blank" rel="noopener">查看详细信息</a></p>
 <hr>
 <h2 id="Set与List的恩怨"><a href="#Set与List的恩怨" class="headerlink" title="Set与List的恩怨"></a>Set与List的恩怨</h2><p>除了众所周知的Set不存放重复元素外，两者在contains方法检索元素时差别也巨大！！！<br>在第一个版本利用graphset元素时，用的是<code>List&lt;Edge&lt;L&gt;&gt; edges</code>,读取两万数据边的时候就花费10s左右，其中重要一点就是有诸多</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (!edges.contains(e)) &#123;</span><br><span class="line">  <span class="keyword">if</span> (weight &gt; <span class="number">0</span>) &#123;</span><br><span class="line">    edges.add(e);</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
@@ -622,7 +623,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Exception-Handling"><span class="toc-number">1.</span> <span class="toc-text">Exception Handling</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#实验四"><span class="toc-number">2.</span> <span class="toc-text">实验四</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#自定义异常"><span class="toc-number">2.1.</span> <span class="toc-text">自定义异常</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#科学记数法表示"><span class="toc-number">2.1.1.</span> <span class="toc-text">科学记数法表示</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#实验五"><span class="toc-number">3.</span> <span class="toc-text">实验五</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#命名规范"><span class="toc-number">3.1.</span> <span class="toc-text">命名规范</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Set与List的恩怨"><span class="toc-number">3.2.</span> <span class="toc-text">Set与List的恩怨</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#再学Strategy设计模式"><span class="toc-number">3.3.</span> <span class="toc-text">再学Strategy设计模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#读写策略"><span class="toc-number">3.4.</span> <span class="toc-text">读写策略</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#BufferedReader"><span class="toc-number">3.4.1.</span> <span class="toc-text">BufferedReader</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#java-nio-file-Files"><span class="toc-number">3.4.2.</span> <span class="toc-text">java.nio.file.Files</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Scanner"><span class="toc-number">3.4.3.</span> <span class="toc-text">Scanner</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Channel"><span class="toc-number">3.4.4.</span> <span class="toc-text">Channel</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Stream-流写入"><span class="toc-number">3.4.5.</span> <span class="toc-text">Stream 流写入</span></a></li></ol></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Exception-Handling"><span class="toc-number">1.</span> <span class="toc-text">Exception Handling</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#实验四"><span class="toc-number">2.</span> <span class="toc-text">实验四</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#自定义异常"><span class="toc-number">2.1.</span> <span class="toc-text">自定义异常</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#科学记数法表示"><span class="toc-number">2.1.1.</span> <span class="toc-text">科学记数法表示</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#实验五"><span class="toc-number">3.</span> <span class="toc-text">实验五</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#工具安装"><span class="toc-number">3.1.</span> <span class="toc-text">工具安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#命名规范"><span class="toc-number">3.2.</span> <span class="toc-text">命名规范</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Set与List的恩怨"><span class="toc-number">3.3.</span> <span class="toc-text">Set与List的恩怨</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#再学Strategy设计模式"><span class="toc-number">3.4.</span> <span class="toc-text">再学Strategy设计模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#读写策略"><span class="toc-number">3.5.</span> <span class="toc-text">读写策略</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#BufferedReader"><span class="toc-number">3.5.1.</span> <span class="toc-text">BufferedReader</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#java-nio-file-Files"><span class="toc-number">3.5.2.</span> <span class="toc-text">java.nio.file.Files</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Scanner"><span class="toc-number">3.5.3.</span> <span class="toc-text">Scanner</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Channel"><span class="toc-number">3.5.4.</span> <span class="toc-text">Channel</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Stream-流写入"><span class="toc-number">3.5.5.</span> <span class="toc-text">Stream 流写入</span></a></li></ol></li></ol></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
@@ -751,9 +752,18 @@ top:50vh;
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 12
+        Total : 13
         </div>
         <!-- search  -->
         
@@ -766,6 +776,11 @@ top:50vh;
     
     <div class="archive-year"> 2019 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/06</span><a class="archive-post-title" href="/2019/06/06/SC实验六/">软件构造实验六</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -834,15 +849,15 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="英语"><span class="iconfont-archer">&#xe606;</span>英语</span>
     
-        <span class="sidebar-tag-name" data-tags="笔记"><span class="iconfont-archer">&#xe606;</span>笔记</span>
-    
         <span class="sidebar-tag-name" data-tags="软件构造笔记"><span class="iconfont-archer">&#xe606;</span>软件构造笔记</span>
+    
+        <span class="sidebar-tag-name" data-tags="笔记"><span class="iconfont-archer">&#xe606;</span>笔记</span>
     
         <span class="sidebar-tag-name" data-tags="竹林深处"><span class="iconfont-archer">&#xe606;</span>竹林深处</span>
     
-        <span class="sidebar-tag-name" data-tags="小感"><span class="iconfont-archer">&#xe606;</span>小感</span>
-    
         <span class="sidebar-tag-name" data-tags="随笔"><span class="iconfont-archer">&#xe606;</span>随笔</span>
+    
+        <span class="sidebar-tag-name" data-tags="小感"><span class="iconfont-archer">&#xe606;</span>小感</span>
     
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
@@ -879,9 +894,9 @@ jsonContent:
     
         <span class="sidebar-category-name" data-categories="英语"><span class="iconfont-archer">&#xe60a;</span>英语</span>
     
-        <span class="sidebar-category-name" data-categories="笔记"><span class="iconfont-archer">&#xe60a;</span>笔记</span>
-    
         <span class="sidebar-category-name" data-categories="软件构造笔记"><span class="iconfont-archer">&#xe60a;</span>软件构造笔记</span>
+    
+        <span class="sidebar-category-name" data-categories="笔记"><span class="iconfont-archer">&#xe60a;</span>笔记</span>
     
         <span class="sidebar-category-name" data-categories="竹林深处"><span class="iconfont-archer">&#xe60a;</span>竹林深处</span>
     
