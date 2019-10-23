@@ -346,6 +346,44 @@
     
     
     <article class="index-post">
+        <a class="abstract-title" href="/2019/10/22/计网实验笔记/">
+            
+                <span>计算机网络</span>
+        </a>
+        <div class="abstract-content">
+            计网笔记lab1&emsp;在计网实验中遇到了些小问题，记录下来。
+StartProxy Exception &emsp;原因是利用Java开启一个进程后再开启相同进程会抛出这个异常，其中eclipse会提示
+Address already in use: NET_Bind
+  &emsp;于是上网查询，发现原因是开启服务器后尽管关闭了eclipse，进程仍然没有被终结。解决办法：
+
+netstat -p tcp -ano 查看端口被哪个进程占用
+taskkill -PID [进程ID] -F  强制终止进程
+
+&emsp;成功解决。
+代理服务器无响应？？？&emsp;我捯饬了一晚上也不...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/10/22</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class="abstract-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="计算机网络">计算机网络</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href="/2019/03/30/UML类图学习/">
             
                 <span>UML类图学习</span>
@@ -626,9 +664,30 @@
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 12
+        Total : 13
         </div>
         <!-- search  -->
         
@@ -702,22 +761,38 @@
             <span class="archive-post-date">03/19</span><a class="archive-post-title" href="/2019/03/19/鄙人杂谈/">鄙人胡诌</a>
         </li>
     
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/10/22/计网实验笔记/">计算机网络</a>
+        </li>
+    
     </ul></div>
   </div>
         <div class="sidebar-panel-tags">
     <div class="sidebar-tags-name">
     
-        <span class="sidebar-tag-name" data-tags="英语"><span class="iconfont-archer">&#xe606;</span>英语</span>
+        <span class="sidebar-tag-name" data-tags="小感"><span class="iconfont-archer">&#xe606;</span>小感</span>
     
-        <span class="sidebar-tag-name" data-tags="软件构造笔记"><span class="iconfont-archer">&#xe606;</span>软件构造笔记</span>
+        <span class="sidebar-tag-name" data-tags="英语"><span class="iconfont-archer">&#xe606;</span>英语</span>
     
         <span class="sidebar-tag-name" data-tags="笔记"><span class="iconfont-archer">&#xe606;</span>笔记</span>
     
+        <span class="sidebar-tag-name" data-tags="软件构造笔记"><span class="iconfont-archer">&#xe606;</span>软件构造笔记</span>
+    
         <span class="sidebar-tag-name" data-tags="竹林深处"><span class="iconfont-archer">&#xe606;</span>竹林深处</span>
     
-        <span class="sidebar-tag-name" data-tags="随笔"><span class="iconfont-archer">&#xe606;</span>随笔</span>
+        <span class="sidebar-tag-name" data-tags="计算机网络"><span class="iconfont-archer">&#xe606;</span>计算机网络</span>
     
-        <span class="sidebar-tag-name" data-tags="小感"><span class="iconfont-archer">&#xe606;</span>小感</span>
+        <span class="sidebar-tag-name" data-tags="随笔"><span class="iconfont-archer">&#xe606;</span>随笔</span>
     
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
@@ -754,9 +829,9 @@ jsonContent:
     
         <span class="sidebar-category-name" data-categories="英语"><span class="iconfont-archer">&#xe60a;</span>英语</span>
     
-        <span class="sidebar-category-name" data-categories="软件构造笔记"><span class="iconfont-archer">&#xe60a;</span>软件构造笔记</span>
-    
         <span class="sidebar-category-name" data-categories="笔记"><span class="iconfont-archer">&#xe60a;</span>笔记</span>
+    
+        <span class="sidebar-category-name" data-categories="软件构造笔记"><span class="iconfont-archer">&#xe60a;</span>软件构造笔记</span>
     
         <span class="sidebar-category-name" data-categories="竹林深处"><span class="iconfont-archer">&#xe60a;</span>竹林深处</span>
     

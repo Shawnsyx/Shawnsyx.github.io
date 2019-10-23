@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>计算机网络</title>
+      <link href="/2019/10/22/%E8%AE%A1%E7%BD%91%E5%AE%9E%E9%AA%8C%E7%AC%94%E8%AE%B0/"/>
+      <url>/2019/10/22/%E8%AE%A1%E7%BD%91%E5%AE%9E%E9%AA%8C%E7%AC%94%E8%AE%B0/</url>
+      
+        <content type="html"><![CDATA[<h1 id="计网笔记"><a href="#计网笔记" class="headerlink" title="计网笔记"></a>计网笔记</h1><h2 id="lab1"><a href="#lab1" class="headerlink" title="lab1"></a>lab1</h2><p>&emsp;在计网实验中遇到了些小问题，记录下来。</p><h3 id="StartProxy-Exception"><a href="#StartProxy-Exception" class="headerlink" title="StartProxy Exception"></a>StartProxy Exception</h3><p> &emsp;原因是利用Java开启一个进程后再开启相同进程会抛出这个异常，其中eclipse会提示</p><p><code>Address already in use: NET_Bind</code></p><p>  &emsp;于是上网查询，发现原因是开启服务器后尽管关闭了eclipse，进程仍然没有被终结。解决办法：</p><ul><li><code>netstat -p tcp -ano</code> 查看端口被哪个进程占用</li><li><code>taskkill -PID [进程ID] -F</code>  强制终止进程</li></ul><p>&emsp;成功解决。</p><h3 id="代理服务器无响应？？？"><a href="#代理服务器无响应？？？" class="headerlink" title="代理服务器无响应？？？"></a>代理服务器无响应？？？</h3><p>&emsp;我捯饬了一晚上也不知为啥，试了网上能搜到的代码还是出现相同的情况，但是细（cu）心（xin）的我发现HTTP默认端口为80，可是根据java程序里面的函数反馈信息，发现：</p><p><img src="D:\My_Blog\blog\source\images\ComputerNetworks\443.png" alt="443"></p><p>&emsp;<strong>443</strong>? 于是百度一下，443端口对应的是Https协议，</p><blockquote><p> 网页浏览端口，能提供加密和通过安全端口传输的另一种HTTP。 </p></blockquote><p> &emsp;所以我弄的还是不行喽？再找一份能够实现https代理服务器的代码去。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 笔记 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 计算机网络 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>软件构造实验六</title>
       <link href="/2019/06/06/SC%E5%AE%9E%E9%AA%8C%E5%85%AD/"/>
       <url>/2019/06/06/SC%E5%AE%9E%E9%AA%8C%E5%85%AD/</url>
