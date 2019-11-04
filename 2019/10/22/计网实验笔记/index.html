@@ -272,7 +272,7 @@ height:50vh;
                 
                 
                     <div class="post-intro-read">
-                        <span>字数统计: <span class="post-count word-count">278</span>阅读时长: <span class="post-count reading-time">1 min</span></span>
+                        <span>字数统计: <span class="post-count word-count">837</span>阅读时长: <span class="post-count reading-time">3 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
@@ -411,12 +411,20 @@ height:50vh;
 </ul>
 <p>&emsp;成功解决。</p>
 <h3 id="代理服务器无响应？？？"><a href="#代理服务器无响应？？？" class="headerlink" title="代理服务器无响应？？？"></a>代理服务器无响应？？？</h3><p>&emsp;我捯饬了一晚上也不知为啥，试了网上能搜到的代码还是出现相同的情况，但是细（cu）心（xin）的我发现HTTP默认端口为80，可是根据java程序里面的函数反馈信息，发现：</p>
-<p><img src="D:\My_Blog\blog\source\images\ComputerNetworks\443.png" alt="443"></p>
+<p><img src="/images/ComputerNetworks/443.png" alt="443"></p>
 <p>&emsp;<strong>443</strong>? 于是百度一下，443端口对应的是Https协议，</p>
 <blockquote>
 <p> 网页浏览端口，能提供加密和通过安全端口传输的另一种HTTP。 </p>
 </blockquote>
-<p> &emsp;所以我弄的还是不行喽？再找一份能够实现https代理服务器的代码去。</p>
+<p> &emsp;所以我弄的还是不行喽？再找一份能够实现https代理服务器的代码去。<br>&emsp;目前来说主要问题是http代理服务器无法访问得了https协议的网站，4399和哈工大门户网站除外，作为一个懒汉我只能再研究研究参考样例里面的c++语言了</p>
+<h3 id="beginthread-和-beginthreadex"><a href="#beginthread-和-beginthreadex" class="headerlink" title="_beginthread()和_beginthreadex"></a>_beginthread()和_beginthreadex</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">unsigned</span> <span class="keyword">long</span> _beginthread(</span><br><span class="line">  <span class="keyword">void</span>(_cdecl *start_address)(<span class="keyword">void</span> *), <span class="comment">//声明为void (*start_address)(void *)形式</span></span><br><span class="line">  <span class="keyword">unsigned</span> stack_size, <span class="comment">//是线程堆栈大小，一般默认为0</span></span><br><span class="line">  <span class="keyword">void</span> *arglist <span class="comment">//向线程传递的参数，一般为结构体</span></span><br><span class="line">);</span><br><span class="line"> </span><br><span class="line"><span class="keyword">unsigned</span> <span class="keyword">long</span> _beginthreadex( <span class="comment">//推荐使用</span></span><br><span class="line">  <span class="keyword">void</span> *security,	<span class="comment">//安全属性，NULL表示默认安全性</span></span><br><span class="line">  <span class="keyword">unsigned</span> stack_size, <span class="comment">//是线程堆栈大小，一般默认为0</span></span><br><span class="line">  <span class="keyword">unsigned</span>(_stdcall  *start_address)(<span class="keyword">void</span> *),	<span class="comment">//声明为unsigned(*start_address)(void *)形式</span></span><br><span class="line">  <span class="keyword">void</span> *argilist,	<span class="comment">//向线程传递的参数，一般为结构体</span></span><br><span class="line">  <span class="keyword">unsigned</span> initflag, <span class="comment">//新线程的初始状态，0表示立即执行，CREATE_SUSPEND表示创建后挂起。</span></span><br><span class="line">  <span class="keyword">unsigned</span> *thrdaddr <span class="comment">//该变量存放线程标识符，它是CreateThread函数中的线程ID。</span></span><br><span class="line">); <span class="comment">//创建成功条件下的将线程句柄转化为unsigned long型返回，创建失败条件下返回0</span></span><br></pre></td></tr></table></figure>
+<p>&emsp;线程结束</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//释放线程空间、释放线程TLS空间、调用ExiteThread结束线程。</span></span><br><span class="line"><span class="keyword">void</span> _endthread(<span class="keyword">void</span>); 	</span><br><span class="line"><span class="comment">// retval:设定的线程结束码，与ExiteThread函数的参数功能一样，</span></span><br><span class="line"><span class="comment">//其实这个函数释放线程TLS空间，再调用ExiteThread函数，但没有释放线程空间。</span></span><br><span class="line"><span class="keyword">void</span> _endthreadex(<span class="keyword">unsigned</span> retval);</span><br></pre></td></tr></table></figure>
+<h3 id="goto-跳过了-的初始化操作"><a href="#goto-跳过了-的初始化操作" class="headerlink" title="goto 跳过了***的初始化操作"></a>goto 跳过了***的初始化操作</h3><p>&emsp;把这个变量放在前面就好了。</p>
+<h3 id="“无法查找或打开PDB文件”"><a href="#“无法查找或打开PDB文件”" class="headerlink" title="“无法查找或打开PDB文件”"></a>“无法查找或打开PDB文件”</h3><p><img src="/images/ComputerNetworks/pdb.png" alt="pdb"><br>参考网址<a href="http://c.biancheng.net/view/474.html" target="_blank" rel="noopener">VS“无法查找或打开PDB文件”</a><br>&emsp;如果还出现无法查找或打开 PDB 文件，原因： 因为符号的加载项没有在你运行项目的那个目录。将缓存符号的目录改为项目运行下的目录。<br>&emsp;计网杀我也？代码示例里面的accept函数是：<br><code>acceptSocket = accept(ProxyServer, NULL, NULL);</code><br>&emsp;但我查询相应的accept发现，根本不能写null,函数原型。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/socket.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">accept</span><span class="params">(<span class="keyword">int</span> sockfd, struct sockaddr *addr, <span class="keyword">socklen_t</span> *addrlen)</span></span>;</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>sockfd 调用socket函数返回的套接字<br>addr将对端的套接字地址结构的信息保存在其中<br>addrlen是套接字地址结构的大小<br>当然, 如果不关心对端的信息, 可以将addr和addrlen都置为NULL.</p>
+</blockquote>
 
     </article>
     <!-- license  -->
@@ -424,6 +432,11 @@ height:50vh;
     <!-- paginator  -->
     <ul class="post-paginator">
         <li class="next">
+            
+                <div class="nextSlogan">Next Post</div>
+                <a href="/2019/11/04/English/" title="English">
+                    <div class="nextTitle">English</div>
+                </a>
             
         </li>
         <li class="previous">
@@ -575,7 +588,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#计网笔记"><span class="toc-number">1.</span> <span class="toc-text">计网笔记</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#lab1"><span class="toc-number">1.1.</span> <span class="toc-text">lab1</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#StartProxy-Exception"><span class="toc-number">1.1.1.</span> <span class="toc-text">StartProxy Exception</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#代理服务器无响应？？？"><span class="toc-number">1.1.2.</span> <span class="toc-text">代理服务器无响应？？？</span></a></li></ol></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#计网笔记"><span class="toc-number">1.</span> <span class="toc-text">计网笔记</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#lab1"><span class="toc-number">1.1.</span> <span class="toc-text">lab1</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#StartProxy-Exception"><span class="toc-number">1.1.1.</span> <span class="toc-text">StartProxy Exception</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#代理服务器无响应？？？"><span class="toc-number">1.1.2.</span> <span class="toc-text">代理服务器无响应？？？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#beginthread-和-beginthreadex"><span class="toc-number">1.1.3.</span> <span class="toc-text">_beginthread()和_beginthreadex</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#goto-跳过了-的初始化操作"><span class="toc-number">1.1.4.</span> <span class="toc-text">goto 跳过了***的初始化操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#“无法查找或打开PDB文件”"><span class="toc-number">1.1.5.</span> <span class="toc-text">“无法查找或打开PDB文件”</span></a></li></ol></li></ol></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
@@ -588,16 +601,6 @@ top:50vh;
     <div class="sidebar-content sidebar-content-show-archive">
           <div class="sidebar-panel-archives">
     <!-- 在ejs中将archive按照时间排序 -->
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
     
     
@@ -743,6 +746,11 @@ top:50vh;
     
     
         <li class="archive-post-item">
+            <span class="archive-post-date">11/04</span><a class="archive-post-title" href="/2019/11/04/English/">English</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
             <span class="archive-post-date">06/06</span><a class="archive-post-title" href="/2019/06/06/SC实验六/">软件构造实验六</a>
         </li>
     
@@ -764,11 +772,6 @@ top:50vh;
     
         <li class="archive-post-item">
             <span class="archive-post-date">04/13</span><a class="archive-post-title" href="/2019/04/13/夜里春秋/">夜里春秋</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">03/30</span><a class="archive-post-title" href="/2019/03/30/English-3-30/">English_3.30</a>
         </li>
     
     
@@ -820,19 +823,19 @@ top:50vh;
         <div class="sidebar-panel-tags">
     <div class="sidebar-tags-name">
     
-        <span class="sidebar-tag-name" data-tags="小感"><span class="iconfont-archer">&#xe606;</span>小感</span>
-    
-        <span class="sidebar-tag-name" data-tags="英语"><span class="iconfont-archer">&#xe606;</span>英语</span>
+        <span class="sidebar-tag-name" data-tags="软件构造笔记"><span class="iconfont-archer">&#xe606;</span>软件构造笔记</span>
     
         <span class="sidebar-tag-name" data-tags="笔记"><span class="iconfont-archer">&#xe606;</span>笔记</span>
     
-        <span class="sidebar-tag-name" data-tags="软件构造笔记"><span class="iconfont-archer">&#xe606;</span>软件构造笔记</span>
-    
         <span class="sidebar-tag-name" data-tags="竹林深处"><span class="iconfont-archer">&#xe606;</span>竹林深处</span>
+    
+        <span class="sidebar-tag-name" data-tags="随笔"><span class="iconfont-archer">&#xe606;</span>随笔</span>
     
         <span class="sidebar-tag-name" data-tags="计算机网络"><span class="iconfont-archer">&#xe606;</span>计算机网络</span>
     
-        <span class="sidebar-tag-name" data-tags="随笔"><span class="iconfont-archer">&#xe606;</span>随笔</span>
+        <span class="sidebar-tag-name" data-tags="小感"><span class="iconfont-archer">&#xe606;</span>小感</span>
+    
+        <span class="sidebar-tag-name" data-tags="英语"><span class="iconfont-archer">&#xe606;</span>英语</span>
     
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
@@ -867,13 +870,13 @@ jsonContent:
         <div class="sidebar-panel-categories">
     <div class="sidebar-categories-name">
     
-        <span class="sidebar-category-name" data-categories="英语"><span class="iconfont-archer">&#xe60a;</span>英语</span>
+        <span class="sidebar-category-name" data-categories="软件构造笔记"><span class="iconfont-archer">&#xe60a;</span>软件构造笔记</span>
     
         <span class="sidebar-category-name" data-categories="笔记"><span class="iconfont-archer">&#xe60a;</span>笔记</span>
     
-        <span class="sidebar-category-name" data-categories="软件构造笔记"><span class="iconfont-archer">&#xe60a;</span>软件构造笔记</span>
-    
         <span class="sidebar-category-name" data-categories="竹林深处"><span class="iconfont-archer">&#xe60a;</span>竹林深处</span>
+    
+        <span class="sidebar-category-name" data-categories="英语"><span class="iconfont-archer">&#xe60a;</span>英语</span>
     
     </div>
     <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
