@@ -22,7 +22,7 @@
     <meta name="description" content>
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>JAVA学习记录 · 是非曲吉祥物</title>
+    <title>Composition Practice · 是非曲吉祥物</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -217,7 +217,7 @@
                 <a href="/">Home</a>
             </div>
             <div class="post-title">
-                <a href="#" class="post-name">JAVA学习记录</a>
+                <a href="#" class="post-name">Composition Practice</a>
             </div>
     </div>
     
@@ -247,7 +247,7 @@ height:50vh;
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            JAVA学习记录
+            Composition Practice
             <!-- 404 -->
             
         </h1>
@@ -266,18 +266,18 @@ height:50vh;
                 
                     <div class="post-intro-tags">
     
-        <a class="post-tag" href="javascript:void(0);" data-tags="笔记">笔记</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags="英语">英语</a>
     
 </div>
                 
                 
                     <div class="post-intro-read">
-                        <span>字数统计: <span class="post-count word-count">859</span>阅读时长: <span class="post-count reading-time">3 min</span></span>
+                        <span>字数统计: <span class="post-count word-count">1.7k</span>阅读时长: <span class="post-count reading-time">9 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
                     <span class="post-intro-calander iconfont-archer">&#xe676;</span>
-                    <span class="post-intro-time">2019/03/22</span>
+                    <span class="post-intro-time">2019/12/08</span>
                     
                     <span id="busuanzi_container_page_pv" class="busuanzi-pv">
                         <span class="iconfont-archer">&#xe602;</span>
@@ -401,19 +401,25 @@ height:50vh;
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <p>&emsp;Lab2的要求看得我一头雾水，又是接口又是不变量的，往日中学时代被老师手把手教的日子果真一去不复返了,不过这种大学的学习方式可能更接近于以后人生中的独自上下求索的艰辛历程吧……<a id="more"></a></p>
-<h1 id="Interface-接口"><a href="#Interface-接口" class="headerlink" title="Interface 接口"></a>Interface 接口</h1><p>&emsp;根据百度百科</p>
-<blockquote>
-<p>&emsp;Java接口是一系列方法的声明，是一些方法特征的集合，一个接口只有方法的特征没有方法的实现，因此这些方法可以在不同的地方被不同的类实现，而这些实现可以具有不同的行为（功能）。<br><br>&emsp;两种含义：一，Java接口，Java语言中存在的结构，有特定的语法和结构；二，一个类所具有的方法的特征集合，是一种逻辑上的抽象。前者叫做“Java接口”，后者叫做“接口”。</p>
-</blockquote>
-<h1 id="静态方法和非静态方法"><a href="#静态方法和非静态方法" class="headerlink" title="静态方法和非静态方法"></a>静态方法和非静态方法</h1><p>&emsp;<br>在外部调用静态方法时，可以使用”类名.方法名”的方式，也可以使用”对象名.方法名”的方式。而实例方法只有后面这种方式。也就是说，调用静态方法可以无需创建对象。</p>
-<p>静态方法在访问本类的成员时，只允许访问静态成员（即静态成员变量和静态方法），而不允许访问实例成员变量和实例方法；实例方法则无此限制。</p>
-<h1 id="constructor（创造器）"><a href="#constructor（创造器）" class="headerlink" title="constructor（创造器）"></a>constructor（创造器）</h1><p>&emsp;构造器最大的用处就是在创建对象时执行初始化，当创建一个对象时，系统会为这个对象的实例进行默认的初始化。如果想改变这种默认的初始化，就可以通过自定义构造器来实现。例如软件构造实验中需要写一个ConcreteEdgesGraph<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">   // TODO constructor</span><br><span class="line">/**</span><br><span class="line"> * construct a empty graph</span><br><span class="line"> */</span><br><span class="line">public ConcreteEdgesGraph() &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h1 id="Assert-断言）"><a href="#Assert-断言）" class="headerlink" title="Assert (断言）"></a>Assert (断言）</h1><p>&emsp;(1)<code>assert [boolean表达式]</code><br><br>&emsp;&emsp;如果表达式为true,程序继续执行，若为false则抛出AssertionError，并终止执行。<br><br>&emsp;(2)<code>assert [boolean 表达式:错误表达式(日志)]</code><br><br>&emsp;&emsp;如果表达式为true，程序继续执行。如果为false，则程序抛出java.lang.AssertionError，输出[错误信息]。</p>
-<h1 id="Iterator迭代器"><a href="#Iterator迭代器" class="headerlink" title="Iterator迭代器"></a>Iterator迭代器</h1><p>&emsp;就是提供一种方法对一个容器对象中的各个元素进行访问，而又不暴露该对象容器的内部细节。详见<a href="https://www.cnblogs.com/zyuze/p/7726582.html" target="_blank" rel="noopener">迭代器</a><br><br>而对应于SC实验中，对边的遍历涉及到迭代器的使用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">List&lt;Edge&gt; iteratorEdges = new ArrayList&lt;Edge&gt;(edges);</span><br><span class="line">    for(Edge i : iteratorEdges) &#123;</span><br><span class="line">    	if(i.getSource().equals(vertex) || i.getTarget().equals(vertex))</span><br><span class="line">    		edges.remove(i);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
-<h1 id="声明"><a href="#声明" class="headerlink" title="声明"></a>声明</h1><p>简而言之就是可以存在这个东西，如果没有此声明的话会出错-没有实例化。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">private final String label;</span><br><span class="line">private final Map&lt;String, Integer&gt; toVertex;  //声明存在合法变量</span><br></pre></td></tr></table></figure></p>
-<p>对应于以下的实例化<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">toVertex = new HashMap&lt;String, Integer&gt;();</span><br></pre></td></tr></table></figure></p>
-<h1 id="泛型"><a href="#泛型" class="headerlink" title="泛型"></a>泛型</h1><p>&emsp;Java泛型（generics）是JDK5中引入的一个新特性，泛型提供了编译时类型安全监测机制，该机制允许程序员在编译时检测到非法的类型。<br>泛型的本质是参数化类型，也就是说所操作的数据类型被指定为一个参数。<br><br>&emsp;在软件工程课程里面<a href="http://web.mit.edu/6.031/www/sp17/psets/ps2/" target="_blank" rel="noopener">Poetic Walks</a>P3应用到了泛型。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">class Vertex&lt;L&gt; &#123;</span><br><span class="line"> private final L label;</span><br><span class="line">    private final Map&lt;L, Integer&gt; toVertex;  //声明存在合法变量</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+        <h1 id="8th-Dec"><a href="#8th-Dec" class="headerlink" title="8th Dec"></a>8th Dec</h1><p>&emsp;<u> <strong>As long as people in a society are hungry or out of work or lack the basic skills needed to survive, the use of public resources to support the arts is inappropriate - and, perhaps, even cruel - when one considers all the potential uses of such money.</strong></u></p>
+<h2 id="范文"><a href="#范文" class="headerlink" title="范文"></a>范文</h2><p>&emsp;<strong>The speaker asserts that</strong> using public resources to support the arts is <strong>unjustifiable</strong> in a society where some people <strong>go without food, jobs and basic survival skills. It might be tempting to agree with the speaker on the basis that</strong> art is not a fundamental human need, and that government is not entirely trustworthy when it comes to its motives and methods. However, the speakers <strong>overlooks certain economic and other social benefits that <a href="https://www.merriam-webster.com/dictionary/accrue" target="_blank" rel="noopener">accrue</a> when government assumes an active role in supporting the arts.</strong> </p>
+<p>&emsp;<strong>The implicit <a href="https://www.merriam-webster.com/dictionary/rationale" target="_blank" rel="noopener">rationale</a> behind the speaker’s satement seems to be that cultural enrichment pales in importance compared to food, clothing, and shelter.</strong> That the latter needs are more fundamental is <strong><a href="https://www.merriam-webster.com/dictionary/indisputable" target="_blank" rel="noopener">indisputable</a></strong>;after all, what starving person would prefer a good painting to even a bad meal? <strong>Accordingly, I concede that</strong> when it comes to the use of public resources it is entirely appropriate to <strong>assign a lower priority to the arts</strong> than to these other pressing social problems. Yet, to <strong>postpone</strong> public arts funding until we completely eliminate unemployment and hunger would be to postpone arts funding forever; any informed person who believes otherwise is <strong>envisioning a pure socialist state</strong> where the government provides for all of its citizens’ needs - a vision which <strong>amounts to fantasy.</strong></p>
+<p>&emsp;<strong>It might also be tempting to agree with the speaker on the basis that</strong> arts <a href="https://www.merriam-webster.com/dictionary/patronage" target="_blank" rel="noopener">patronage</a> is neither an appropriate nor a necessary function of government. This argument has <strong>considerable merit， in three respects</strong>. First, it seems <strong>ill-conceived</strong> to relegate decision and choices about arts funding to a handful of bureaucrats, who are likely to decide based on their <strong><a href="https://www.merriam-webster.com/dictionary/quirky" target="_blank" rel="noopener">quirky</a> notions about art</strong>, and whose decisions might be susceptible to influence-peddling. Second, private charity and philanthropy appear to be alive and well today. For example, year after year the Public Broadcasting System is able to survive, and even thrive, on donations from private foundations and individuals. Third, government funding requires tax dollars from our pockets - <strong>leaving us with less disposable dollars</strong> with which to support the arts directly and more efficiently than any bureaucracy ever could.</p>
+<p>&emsp;<strong>On the other hand are two compelling arguments that</strong> public support for the arts is desirable, whether or not unemployment and hunger have been eliminated. <strong>One such argument is that</strong> by allocating public resources to the arts we actually help to solve thses social problems. Consider Canada’s jobs for film-industry workers as a result. The Canadian government also provides various <a href="https://www.merriam-webster.com/dictionary/incentive" target="_blank" rel="noopener">incentives</a> for American production companies to film and produce their movies in Canada. These incentives have <strong>sparked a boon for</strong> the Canadian economy, thereby stimulating job growth and wealth that can be applied toward education, job training, and social programs. The Canadian example is proof that public arts support can help solve the kinds of social problems with which the speaker is concerned.</p>
+<p>&emsp; <strong>A second argument against the speaker’s position has to do with the function and ultimate objectives of art.</strong> Art serves to lift the human spirit and to put us more in touch with our feelings, <a href="https://www.merriam-webster.com/dictionary/foible" target="_blank" rel="noopener">foibles</a>, and fate-in short, with our own humanity. With a heightened sensitivity to the human condition, we become more <strong>others-oriented</strong>, less self-centered, more <strong>giving of ourselves</strong>. In other words, we become a more charitable society–more willing to give to those less fortunate than ourselves in the ways with which the speaker is concerned. The speaker might argue, of course, that we do a <a href="https://www.merriam-webster.com/dictionary/disservice" target="_blank" rel="noopener">disservice</a> to others when we lend a helping hand–by enabling them to depend on us to survive. However, <strong>at the heart of this specious argument lies a certain coldness and lack of compassion that</strong>, in my view, any society should seek to discourage. Besides, the argument leads <strong>inexorably</strong> to certain political, philosophical, and moral issues that this brief essay cannot begin to address.</p>
+<p>&emsp;In the final analysis, the beneficiaries of public arts funding are not limited to the elitists who <strong>stroll through</strong> big-city museums and attend symphonies and gallery openings, as the speaker might have us believe. Public resources allocated to the arts create jobs for artists and others whose livelihood depends on <strong>a vibrant, rich culture</strong>–just the sort of culture that breeds charitable concern for the hungry, the helpless, and the <a href="https://www.merriam-webster.com/dictionary/hapless" target="_blank" rel="noopener">hapless</a></p>
+<h2 id="自己的烂文："><a href="#自己的烂文：" class="headerlink" title="自己的烂文："></a>自己的烂文：</h2><p>&emsp;我想说</p>
+<ul>
+<li>投入了money在艺术之外的领域也不一定改善民生，问题难以根除。而且艺术能够创造价值作用于民生问题（和范文有类似的点）。</li>
+<li>作为公共资源的管理者，有必要考虑资源的受体组成结构。那些贡献税收的人有权利享受到自己追求的精神层次，文娱需求。但一言蔽之，剥夺他们的意志而强行把资源分给贫苦的人也算一种不合适的资源配置。</li>
+<li>假设只要有饥饿啥的，就不该把公共资源分给艺术。那如果饥饿用不消除，艺术就不该靠公共资源发展了吗？那文艺复兴存在意义？为什么国家和社会都要鼓励文化创造呐？</li>
+</ul>
+<p>&emsp;但是吧，写出来就变味了。一是我现在英语hold不住中文的论点，词语匮乏。而且写出来不地道。</p>
+<p>&emsp;不堪入目的文章。<br>&emsp;Hunger as well as unemployment have always been people’s most concern for thousands of years, no matter what the society they are in. <strong>Presumably</strong>, the use of public resource to support art is irrational as long as there are people in hunger or out of work, then rapid development of arts is seemingly against people’s will. Nevertheless, arts have witnessed the different status of society, no matter how prosperous or declined the society is, and the truth that arts have been supported by countless people is contradictory to the speakers’ opinion, due to which I’m opposed to the topic and believe the rational existence of arts.</p>
+<p>&emsp;<strong>I concede that the speaker is on the correct philosophical side of this issue</strong>. After all, the use of money is the lasting solutions to our enduring problems, such as hunger and employment. Proper use of public resources is also the chief means by which we have the probability to get rid of poverty and satisfy our insatiable appetite for better life. Yet, in the very notion of proper use of public resource also lies my first point of contention with the speaker, who illogically presumes that the use of money to support arts is of no help to alleviate the problems of hunger and unemployment. To the contrary, the evidence that arts help dealing with poverty and huger is consolidated and apparent.</p>
+<p>&emsp;The long history of arts shows to us the necessity of higher pursue for life and the basic function arts provide for us – the satisfaction for mental demand. At the same time, people’ demands for arts create the opportunities for others to achieve their goals and make a living by devoting themselves to arts. Despite the fact that arts is in need of public resources to support, arts itself can also be used as public resources and applied to other fields of society. The LIVE AID held in 1985 raised enormous money to helped millions of people in Africa. Singers and groups, representing music arts, were regarded as strong support for people in poverty and even cast a ray of hope to dealing with starvation.</p>
+<p>&emsp;<strong>The speakers’ assertion is troubling in two other respects as well. First</strong>, no amount of money can completely solve the enduring problems of poverty, unemployment and starvation, for the reason that they stem from the nature of society structure. The use of public resources to support art, if applied to helping people in hunger or out of work, means little to mitigate these problems due to the small percentage that the money account for and the seriousness and large scale the social problem is. At the same time, with slight attention to arts, people will lose the exploration of the unknown for true answers to our questions. Secondly, people who contribute to the society and consist of the different social status vary, which means the demand of them are different as well. The neglection to their demands for arts is another kind of pure cruelty to those people. In short, so-called “the proper use of public resources” is another form of inappropriate use in the name of mitigating social problems.</p>
+<p>&emsp;In sum, the speaker’s assertion that we should invest little or none to arts when hungry or unemployed people exist in society begs the question, because we cannot eliminate the problems of poverty and hunger no matter what the society status is. As for the speaker’s broader assertion, I agree that proper use of money is needed because only when the society is stable can arts be encouraged. Nevertheless, when we purely invest money in those problems, we neglect the diverse needs of our society in the name of <strong>relieving the immediate suffering of our dispirited, disadvantaged, and disenfranchised members of society</strong>. In the final analysis, given finite economic resources we are forced to <strong>strike a balance in how we allocate those resources among competing social objects</strong>.</p>
 
     </article>
     <!-- license  -->
@@ -422,17 +428,12 @@ height:50vh;
     <ul class="post-paginator">
         <li class="next">
             
-                <div class="nextSlogan">Next Post</div>
-                <a href="/2019/03/23/SC_Mutable/" title="软件构造笔记Mutable">
-                    <div class="nextTitle">软件构造笔记Mutable</div>
-                </a>
-            
         </li>
         <li class="previous">
             
                 <div class="prevSlogan">Previous Post</div>
-                <a href="/2019/03/19/SC实验二&第三章/" title="SC_Lab2和Chapter3">
-                    <div class="prevTitle">SC_Lab2和Chapter3</div>
+                <a href="/2019/11/27/Viewpoints/" title="VIEWPOINTS & OTHERS">
+                    <div class="prevTitle">VIEWPOINTS & OTHERS</div>
                 </a>
             
         </li>
@@ -577,7 +578,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Interface-接口"><span class="toc-number">1.</span> <span class="toc-text">Interface 接口</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#静态方法和非静态方法"><span class="toc-number">2.</span> <span class="toc-text">静态方法和非静态方法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#constructor（创造器）"><span class="toc-number">3.</span> <span class="toc-text">constructor（创造器）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Assert-断言）"><span class="toc-number">4.</span> <span class="toc-text">Assert (断言）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Iterator迭代器"><span class="toc-number">5.</span> <span class="toc-text">Iterator迭代器</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#声明"><span class="toc-number">6.</span> <span class="toc-text">声明</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#泛型"><span class="toc-number">7.</span> <span class="toc-text">泛型</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#8th-Dec"><span class="toc-number">1.</span> <span class="toc-text">8th Dec</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#范文"><span class="toc-number">1.1.</span> <span class="toc-text">范文</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#自己的烂文："><span class="toc-number">1.2.</span> <span class="toc-text">自己的烂文：</span></a></li></ol></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
