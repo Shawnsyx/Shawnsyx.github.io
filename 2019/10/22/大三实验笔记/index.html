@@ -22,7 +22,7 @@
     <meta name="description" content>
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>是非曲吉祥物</title>
+    <title>实验笔记 · 是非曲吉祥物</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -77,6 +77,8 @@
 
     <link rel="preload" href="/css/style.css?v=20180824" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <link rel="stylesheet" href="/css/mobile.css?v=20180824" media="(max-width: 980px)">
+    
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     
     <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
 /* This file is meant as a standalone workflow for
@@ -201,14 +203,23 @@
 </head>
 
     
-        <body class="home-body">
+        <body class="post-body">
     
     
-<header class="header index-header">
+<header class="header">
 
     <div class="read-progress"></div>
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/">Home</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">实验笔记</a>
+            </div>
+    </div>
     
     <a class="home-link" href="/">Home</a>
 </header>
@@ -227,17 +238,17 @@ height:50vh;
     <!-- 主页  -->
     
     
-    <!-- 文章页  -->
+    <!-- 404页  -->
             
     <div class="site-intro-placeholder"></div>
-    <div class="site-intro-img" style="background-image: url(/intro/camera.jpg)"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/typewriter.jpg)"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            Home
-            <!-- 文章页  -->
+            实验笔记
+            <!-- 404 -->
             
         </h1>
         <!-- 副标题 -->
@@ -245,12 +256,43 @@ height:50vh;
             <!-- 主页副标题  -->
             
             
-                Till Valhalla
-            
-            <!-- 文章页  -->
+            <!-- 404 -->
             
         </p>
         <!-- 文章页meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                
+                    <div class="post-intro-read">
+                        <span>字数统计: <span class="post-count word-count">1.3k</span>阅读时长: <span class="post-count reading-time">4 min</span></span>
+                    </div>
+                
+                <div class="post-intro-meta">
+                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                    <span class="post-intro-time">2019/10/22</span>
+                    
+                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                        <span class="iconfont-archer">&#xe602;</span>
+                        <span id="busuanzi_value_page_pv"></span>
+                    </span>
+                    
+                    <span class="shareWrapper">
+                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                        <span class="shareText">Share</span>
+                        <ul class="shareList">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
         
     </div>
 </div>
@@ -351,457 +393,95 @@ height:50vh;
 </script>        
         <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
         <div class="container container-unloaded">
-            <main class="main index-page">
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/12/08/作文练习/">
-            
-                <span>Composition Practice</span>
-        </a>
-        <div class="abstract-content">
-            8th Dec&emsp; As long as people in a society are hungry or out of work or lack the basic skills needed to survive, the use of public resources to support the arts is inappropriate - and, perhaps, even cruel - when one considers all the potential uses of such money.
-范文&emsp;The speaker asserts tha...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/12/08</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="英语">英语</a>
-    
-</div>
-            
-        </div>
+            <main class="main post-page">
+    <article class="article-entry">
+        <h1 id="自然语言处理"><a href="#自然语言处理" class="headerlink" title="自然语言处理"></a>自然语言处理</h1><h2 id="tensorflow相关"><a href="#tensorflow相关" class="headerlink" title="tensorflow相关"></a>tensorflow相关</h2><p>&emsp;验证tensorflow能否工作的时候调用<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line">sess = tf.Session()</span><br><span class="line">a = tf.constant(<span class="number">10</span>)</span><br><span class="line">b = tf.constant(<span class="number">12</span>)</span><br><span class="line">sess.run(a+b)</span><br></pre></td></tr></table></figure></p>
+<p>其中对第二行命令，报错<strong>AttributeError: module ‘tensorflow’ has no attribute ‘Session’</strong><br>上网查询，发现原因是这个命令属于低版本的tensorflow，想正常使用的话，应该把<code>import tensorflow as tf</code>注释掉，然后换成<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow.compat.v1 <span class="keyword">as</span> tf</span><br><span class="line">tf.disable_v2_behavior()</span><br></pre></td></tr></table></figure></p>
+<p>Pycharm中报错，<br>在开头加上<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line">os.environ[<span class="string">'TF_CPP_MIN_LOG_LEVEL'</span>]=<span class="string">'2'</span></span><br><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br></pre></td></tr></table></figure></p>
+<h2 id="tensorflow-gpu"><a href="#tensorflow-gpu" class="headerlink" title="tensorflow-gpu"></a>tensorflow-gpu</h2><p>&emsp;我真的很想骂人了。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> tensorflow_core.python.client <span class="keyword">import</span> device_lib</span><br><span class="line">print(device_lib.list_local_devices())</span><br></pre></td></tr></table></figure></p>
+<p>查看当前可用GPU设备。<br>第一开始<code>nvidia-smi</code>指令报错，我真的爆哭。钟哥“冷嘲热讽”地点醒我ge-experience没装等等，让我重新装了之后能够正常使用。他真是个态度差的好男人。</p>
+<p>&emsp;<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> bert <span class="keyword">import</span> modeling</span><br><span class="line"><span class="keyword">from</span> bert <span class="keyword">import</span> optimization</span><br><span class="line"><span class="keyword">from</span> bert <span class="keyword">import</span> tokenization</span><br></pre></td></tr></table></figure></p>
+<p>报错，后来发现自己应该<code>pip install bert-tensorflow</code>并且在pycharm中安装这个bert的package</p>
+<h2 id="tensor-flow代码升级"><a href="#tensor-flow代码升级" class="headerlink" title="tensor-flow代码升级"></a>tensor-flow代码升级</h2><p>&emsp;国际惯例，问候老师。<br>&emsp;由于github上的代码基本都是基于tensorflow-1.x版本的，而我最近安装的TF是2.0.0，折腾得筋疲力尽真的不能再让我去降级捯饬这儿玩意儿了。<br>&emsp;Luckily,查阅<a href="https://www.tensorflow.org/guide/effective_tf2" target="_blank" rel="noopener">Tensorflow</a>中发现其中有一条<strong>The easiest way to automatically apply these renames is to use the <a href="https://www.tensorflow.org/guide/upgrade" target="_blank" rel="noopener">v2 upgrade script</a></strong>.</p>
+<p>&emsp;但是实践下来发现还有不少错误。第一开始如果直接在powershell中输入命令<br><code>tf_upgrade_v2 --infile [文件名].py --outfile [升级后文件名].py</code><br>会有DLL错误，回忆之前检测tensorflow-gpu版本检测错误过程当中出现的同样错误，发现是由于自己没有激活tensorflow，<br>于是先：<br><code>activate tensorflow-gpu</code>再使用升级指令。</p>
+<h1 id="计网笔记"><a href="#计网笔记" class="headerlink" title="计网笔记"></a>计网笔记</h1><h2 id="lab1"><a href="#lab1" class="headerlink" title="lab1"></a>lab1</h2><p>&emsp;在计网实验中遇到了些小问题，记录下来。</p>
+<h3 id="StartProxy-Exception"><a href="#StartProxy-Exception" class="headerlink" title="StartProxy Exception"></a>StartProxy Exception</h3><p> &emsp;原因是利用Java开启一个进程后再开启相同进程会抛出这个异常，其中eclipse会提示</p>
+<p><code>Address already in use: NET_Bind</code></p>
+<p>  &emsp;于是上网查询，发现原因是开启服务器后尽管关闭了eclipse，进程仍然没有被终结。解决办法：</p>
+<ul>
+<li><code>netstat -p tcp -ano</code> 查看端口被哪个进程占用</li>
+<li><code>taskkill -PID [进程ID] -F</code>  强制终止进程</li>
+</ul>
+<p>&emsp;成功解决。</p>
+<h3 id="代理服务器无响应？？？"><a href="#代理服务器无响应？？？" class="headerlink" title="代理服务器无响应？？？"></a>代理服务器无响应？？？</h3><p>&emsp;我捯饬了一晚上也不知为啥，试了网上能搜到的代码还是出现相同的情况，但是细（cu）心（xin）的我发现HTTP默认端口为80，可是根据java程序里面的函数反馈信息，发现：</p>
+<p><img src="/images/ComputerNetworks/443.png" alt="443"></p>
+<p>&emsp;<strong>443</strong>? 于是百度一下，443端口对应的是Https协议，</p>
+<blockquote>
+<p> 网页浏览端口，能提供加密和通过安全端口传输的另一种HTTP。 </p>
+</blockquote>
+<p> &emsp;所以我弄的还是不行喽？再找一份能够实现https代理服务器的代码去。<br>&emsp;目前来说主要问题是http代理服务器无法访问得了https协议的网站，4399和哈工大门户网站除外，作为一个懒汉我只能再研究研究参考样例里面的c++语言了</p>
+<h3 id="beginthread-和-beginthreadex"><a href="#beginthread-和-beginthreadex" class="headerlink" title="_beginthread()和_beginthreadex"></a>_beginthread()和_beginthreadex</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">unsigned</span> <span class="keyword">long</span> _beginthread(</span><br><span class="line">  <span class="keyword">void</span>(_cdecl *start_address)(<span class="keyword">void</span> *), <span class="comment">//声明为void (*start_address)(void *)形式</span></span><br><span class="line">  <span class="keyword">unsigned</span> stack_size, <span class="comment">//是线程堆栈大小，一般默认为0</span></span><br><span class="line">  <span class="keyword">void</span> *arglist <span class="comment">//向线程传递的参数，一般为结构体</span></span><br><span class="line">);</span><br><span class="line"> </span><br><span class="line"><span class="keyword">unsigned</span> <span class="keyword">long</span> _beginthreadex( <span class="comment">//推荐使用</span></span><br><span class="line">  <span class="keyword">void</span> *security,	<span class="comment">//安全属性，NULL表示默认安全性</span></span><br><span class="line">  <span class="keyword">unsigned</span> stack_size, <span class="comment">//是线程堆栈大小，一般默认为0</span></span><br><span class="line">  <span class="keyword">unsigned</span>(_stdcall  *start_address)(<span class="keyword">void</span> *),	<span class="comment">//声明为unsigned(*start_address)(void *)形式</span></span><br><span class="line">  <span class="keyword">void</span> *argilist,	<span class="comment">//向线程传递的参数，一般为结构体</span></span><br><span class="line">  <span class="keyword">unsigned</span> initflag, <span class="comment">//新线程的初始状态，0表示立即执行，CREATE_SUSPEND表示创建后挂起。</span></span><br><span class="line">  <span class="keyword">unsigned</span> *thrdaddr <span class="comment">//该变量存放线程标识符，它是CreateThread函数中的线程ID。</span></span><br><span class="line">); <span class="comment">//创建成功条件下的将线程句柄转化为unsigned long型返回，创建失败条件下返回0</span></span><br></pre></td></tr></table></figure>
+<p>&emsp;线程结束</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//释放线程空间、释放线程TLS空间、调用ExiteThread结束线程。</span></span><br><span class="line"><span class="keyword">void</span> _endthread(<span class="keyword">void</span>); 	</span><br><span class="line"><span class="comment">// retval:设定的线程结束码，与ExiteThread函数的参数功能一样，</span></span><br><span class="line"><span class="comment">//其实这个函数释放线程TLS空间，再调用ExiteThread函数，但没有释放线程空间。</span></span><br><span class="line"><span class="keyword">void</span> _endthreadex(<span class="keyword">unsigned</span> retval);</span><br></pre></td></tr></table></figure>
+<h3 id="goto-跳过了-的初始化操作"><a href="#goto-跳过了-的初始化操作" class="headerlink" title="goto 跳过了***的初始化操作"></a>goto 跳过了***的初始化操作</h3><p>&emsp;把这个变量放在前面就好了。</p>
+<h3 id="“无法查找或打开PDB文件”"><a href="#“无法查找或打开PDB文件”" class="headerlink" title="“无法查找或打开PDB文件”"></a>“无法查找或打开PDB文件”</h3><p><img src="/images/ComputerNetworks/pdb.png" alt="pdb"><br>参考网址<a href="http://c.biancheng.net/view/474.html" target="_blank" rel="noopener">VS“无法查找或打开PDB文件”</a><br>&emsp;如果还出现无法查找或打开 PDB 文件，原因： 因为符号的加载项没有在你运行项目的那个目录。将缓存符号的目录改为项目运行下的目录。<br>&emsp;计网杀我也？代码示例里面的accept函数是：<br><code>acceptSocket = accept(ProxyServer, NULL, NULL);</code><br>&emsp;但我查询相应的accept发现，根本不能写null,函数原型。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/socket.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">accept</span><span class="params">(<span class="keyword">int</span> sockfd, struct sockaddr *addr, <span class="keyword">socklen_t</span> *addrlen)</span></span>;</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>sockfd 调用socket函数返回的套接字<br>addr将对端的套接字地址结构的信息保存在其中<br>addrlen是套接字地址结构的大小<br>当然, 如果不关心对端的信息, 可以将addr和addrlen都置为NULL.</p>
+</blockquote>
+
     </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/11/27/Viewpoints/">
-            
-                <span>VIEWPOINTS &amp; OTHERS</span>
-        </a>
-        <div class="abstract-content">
-            &emsp; 在此记录下自己准备作文当中积累的观点和句子。
-&emsp; 按照实现顺序吧，积累一下。
-Nov. 201911.27韩星死亡事件, 来自华盛顿邮报
-苛刻粉丝以及国家缺乏对明星心理健康的帮助
-
-Sulli’s(雪莉）death highlighted the huge pressures on K-pop stars, partly exerted by demanding fans, and the lack of mental health support in this country.
-
-女星失去自己的生活
-
-Both women, members of an ind...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/11/27</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="英语">英语</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/11/04/English/">
-            
-                <span>English</span>
-        </a>
-        <div class="abstract-content">
-            &emsp;第一篇英语笔记，道阻且长。
-&emsp;错的最多的就是每篇的压轴题：6选3，几乎没有全对过，哎呀我的心呀。
-TPO 11 Reading
-Ancient Egyptian Sculpture&emsp;大体讲了埃及建筑物的特点，新词frontality，无论材质如何（stone，wooden or metal），都体现这个“正面性”，展示雕塑的姿态。在此基础上探讨了雕塑decorative作用等等……
-&emsp;错题2，事实信息题,根据提问，应该从段落的文句中寻找答案，冒号之后罗列雕塑不受欢迎的原因。
-
-Why did the Egyptians not develop s...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/11/04</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="英语">英语</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/10/22/大三实验笔记/">
-            
-                <span>实验笔记</span>
-        </a>
-        <div class="abstract-content">
-            自然语言处理tensorflow相关&emsp;验证tensorflow能否工作的时候调用12345import tensorflow as tfsess = tf.Session()a = tf.constant(10)b = tf.constant(12)sess.run(a+b)
-其中对第二行命令，报错AttributeError: module ‘tensorflow’ has no attribute ‘Session’上网查询，发现原因是这个命令属于低版本的tensorflow，想正常使用的话，应该把import tensorflow as tf注释掉，然后换成12impor...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/10/22</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/06/06/SC实验六/">
-            
-                <span>软件构造实验六</span>
-        </a>
-        <div class="abstract-content">
-            第一次更认真的重写hashCode。按照更好的重写hashCode方法
-
-零散知识Int最大数&emsp;It is universally accepted that 在int范围中最大的数为2147483647.在本人设计Ladder这个ADT时，需要记录该梯子上所有猴子中速度最小的，记为这个梯子的最小数。但是应该确保的是，初始化时这个梯子最小速度应该为一个非常非常大的数，即为int范围最大值。&emsp;我本人这样写this.minSpeed = 2147483647;&emsp;后来查询到，Java中由Integer.MAX_VALUE表示。不得不叹上一句“这java封装的太好了...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/06/06</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="软件构造笔记">软件构造笔记</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/05/21/入川/">
-            
-                <span>入川</span>
-        </a>
-        <div class="abstract-content">
-              &emsp;柱柱白气从火锅径口窜出，滋滋的汤水翻滚着。&emsp;Z嚷着，他妈你们点这么少的肉，哪里够吃啊？&emsp;Y 与我“虚情假意”地拉扯，吃吃吃啊，别下肉了，一会你又该说你吃不了了。&emsp;F 闷着头快快乐乐地嚼着煮得半生不熟的五花肉。&emsp;离开哈尔滨的前一天，几个人一拍脑门决定搓一顿火锅尝尝，本说好快速解决温饱问题后赶紧前往专业宣讲会听介绍。结果吃的不亦乐乎的Z，Y，F和我将一切学业问题抛之脑后，只许那让人欲拒还迎的火锅味侵染身体的每一寸肌肤。&emsp;谁知福建人和长沙人吃火锅不点素菜？趁着我调料时火急火燎地划了几行五花肉、鱼肉以及肥牛肥羊后便将菜单，与我对其...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/05/21</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="竹林深处">竹林深处</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/05/09/SC实验四&实验五/">
-            
-                <span>SC实验四-异常处理及实验五</span>
-        </a>
-        <div class="abstract-content">
-            &emsp;实验四开始，一点点学习异常处理！&emsp;首先区分异常（Exception）和错误（Error）
-
-The Error class describes internal system errors and resource exhaustion situations inside the Java runtime system (e.g., VirtualMachineError, LinkageError) that rarely occur. 
-
-&emsp;内部错误：程序员通常无能为力，一旦发生，想办法让程序优雅的结束 。而对于异常：
-
-The Exception c...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/05/09</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="软件构造笔记">软件构造笔记</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/04/16/SC实验三/">
-            
-                <span>SC实验三</span>
-        </a>
-        <div class="abstract-content">
-            &emsp;该实验面向可复用性进行设计，需要学习掌握一定的设计模式针对不同的应用进行设计。而我本人选择的三个应用：StellarSystem（太阳系恒星模型）、AtomStructure（原子结构模型）、SocialNetworkCircle（社交网络）。
-
- 可复用啊！！！ L,E。 不同对象的面向复用的设计(Reusability)CircularOrbit&lt;L,E&gt;&emsp;Mutable的类型。&emsp;设计新的接口CircularOrbit&lt;L,E&gt;,其中L和E分别代表多轨道系统的中心点物体和轨道物体。可有的操作：
-
-创建一个空的 CircularO...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/04/16</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="软件构造笔记">软件构造笔记</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/04/13/夜里春秋/">
-            
-                <span>夜里春秋</span>
-        </a>
-        <div class="abstract-content">
-            
-于是我剪下了月光射向我老家的地方
-
-&emsp;郑州的夜比哈尔滨多了活力与隐隐的躁动，比北京的夜多了些魅惑和妩媚，比商丘多了些大气。
-&emsp;如今，郑州的星星也多了些，大抵是空气得到改善了吧。
-&emsp;我随着颠颠簸簸的机场大巴晃着脑袋，感到4月份的郑州俨然一副夏季整装待发的样子。左座扎着马尾辫的女子低着头刷着抖音，时不时掸去吃在身上的饼干屑；后座一对从哈尔滨回来的男生对着同行女伴绘声绘色地描述着自己的风光往事；隔着过道年轻妈妈的右臂侧枕着约莫2岁的熟睡的儿子，她偶尔也瞥了头地向窗外看去，看这绿城路灯与树影的光影交错。除了随车摇晃的频率，一车的人，无一处相似。
-&emsp;星光与...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/04/13</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="随笔">随笔</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/03/30/UML类图学习/">
-            
-                <span>UML类图学习</span>
-        </a>
-        <div class="abstract-content">
-            阅读材料来自于：深入浅出UML类图&emsp;类图用于描述系统中所包含的类以及它们之间的相互关系，帮助人们简化对系统的理解，它是系统分析和设计阶段的重要产物，也是系统编码和测试的重要模型依据。
-
-类&emsp;类(Class)封装了数据和行为，是面向对象的重要组成部分，它是具有相同属性、操作、关系的对象集合的总称。在软件系统运行时，类将被实例化成对象(Object)，对象对应于某个具体的事物，是类的实例(Instance)。&emsp;类图(Class Diagram)使用出现在系统中的不同类来描述系统的静态结构，它用来描述不同的类以及它们之间的关系。
-
-类的UML图示&emsp;在UM...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/03/30</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="笔记">笔记</a>
-    
-</div>
-            
-        </div>
-    </article>
+    <!-- license  -->
     
     <!-- paginator  -->
-    
-    <nav class="page-nav">
-        <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">NEXT &#62;</a>
-    </nav>
-    
-</main>
-            <!-- profile -->
+    <ul class="post-paginator">
+        <li class="next">
             
-            <div class="profile">
-    <img class="profile-avatar" alt="avatar" src="/avatar/1.png">
-    <div class="profile-name">霄先生吃元宵</div>
-    
-    <div class="profile-signature">
-        Relove and relax :)
+                <div class="nextSlogan">Next Post</div>
+                <a href="/2019/11/04/English/" title="English">
+                    <div class="nextTitle">English</div>
+                </a>
+            
+        </li>
+        <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href="/2019/06/06/SC实验六/" title="软件构造实验六">
+                    <div class="prevTitle">软件构造实验六</div>
+                </a>
+            
+        </li>
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+    <div id="lv-container" data-id="city" data-uid="MTAyMC80Mzc0Mi8yMDI4MQ==">
+        <script type="text/javascript">
+            (function (d, s) {
+                var j, e = d.getElementsByTagName(s)[0];
+                if (typeof LivereTower === 'function') { return; }
+                j = d.createElement(s);
+                j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+                j.async = true;
+
+                e.parentNode.insertBefore(j, e);
+            })(document, 'script');
+        </script>
+        <noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
     </div>
+
+<!-- City版安装代码已完成 -->
     
     
-    <div class="profile-social">
-        
+    <!-- partial('_partial/comment/changyan') -->
+    <!--PC版-->
+
+
     
-        
-            
-                <a href="mailto:997948850@qq.com" class="iconfont-archer email" title="email"></a>
-            
-        
-    
-        
-            
-                <a href="//github.com/Shawnsyx" class="iconfont-archer github" target="_blank" title="github"></a>
-            
-        
-    
-        
-            
-                <span class="iconfont-archer wechat" title="wechat">
-                  
-                  <img class="profile-qr" src="/assets/wechat.jpg">
-                </span>
-            
-        
-    
-        
-            
-                <span class="iconfont-archer qq" title="qq">
-                  
-                  <img class="profile-qr" src="/assets/qq.jpg">
-                </span>
-            
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-            
-                <a href="/atom.xml" class="iconfont-archer rss" target="_blank" title="rss"></a>
-            
-        
     
 
-    </div>
-    
-    
-        <div class="friends">
-            <div>FRIENDS</div>
-            
-                
-                    <span>
-                        <a href="https://1170300229.github.io/" target="_black">橙子</a>
-                    </span>
-                
-            
-                
-                    <span>
-                        <a href="http://evanclark.top/" target="_black">钟哥</a>
-                    </span>
-                
-            
-                
-                    <span>
-                        <a href="https://fzihao1999.github.io/" target="_black">肥子</a>
-                    </span>
-                
-            
-                
-                    <span>
-                        <a href="https://250.ac.cn/" target="_black">李泉</a>
-                    </span>
-                
-            
-        </div>
-    
-    
-        <div class="about-me">
-            <a href="/about">ABOUT ME</a>
-        </div>
-    
-</div>
+    <!-- 评论 -->
+</main>
+            <!-- profile -->
             
         </div>
         <footer class="footer footer-unloaded">
@@ -895,6 +575,24 @@ The Exception c...
 </footer>
     </div>
     <!-- toc -->
+    
+    <div class="toc-wrapper" style=
+    
+
+
+
+
+
+
+
+top:50vh;
+
+    >
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#自然语言处理"><span class="toc-number">1.</span> <span class="toc-text">自然语言处理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#tensorflow相关"><span class="toc-number">1.1.</span> <span class="toc-text">tensorflow相关</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#tensorflow-gpu"><span class="toc-number">1.2.</span> <span class="toc-text">tensorflow-gpu</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#tensor-flow代码升级"><span class="toc-number">1.3.</span> <span class="toc-text">tensor-flow代码升级</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#计网笔记"><span class="toc-number">2.</span> <span class="toc-text">计网笔记</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#lab1"><span class="toc-number">2.1.</span> <span class="toc-text">lab1</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#StartProxy-Exception"><span class="toc-number">2.1.1.</span> <span class="toc-text">StartProxy Exception</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#代理服务器无响应？？？"><span class="toc-number">2.1.2.</span> <span class="toc-text">代理服务器无响应？？？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#beginthread-和-beginthreadex"><span class="toc-number">2.1.3.</span> <span class="toc-text">_beginthread()和_beginthreadex</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#goto-跳过了-的初始化操作"><span class="toc-number">2.1.4.</span> <span class="toc-text">goto 跳过了***的初始化操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#“无法查找或打开PDB文件”"><span class="toc-number">2.1.5.</span> <span class="toc-text">“无法查找或打开PDB文件”</span></a></li></ol></li></ol></li></ol>
+    </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
     <div class="sidebar sidebar-hide">
@@ -1245,6 +943,8 @@ jsonContent:
     
     </div>
     <!-- async load share.js -->
+    
+        <script src="/scripts/share.js" async></script>    
      
     </body>
 </html>
