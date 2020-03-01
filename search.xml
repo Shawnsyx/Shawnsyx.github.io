@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>leetcode练习题</title>
+      <link href="/2020/03/01/leetcode/"/>
+      <url>/2020/03/01/leetcode/</url>
+      
+        <content type="html"><![CDATA[<p>记录自己做题学习</p><h1 id="1st-March"><a href="#1st-March" class="headerlink" title="1st March"></a>1st March</h1><p>题目地址：<a href="https://leetcode-cn.com/problems/two-sum/" target="_blank" rel="noopener">两个数加和</a></p><p>&emsp;本人做法：很笨，暴力循环遍历。然后复杂度是O(n<sup>2</sup>)的两层遍历。而且不熟悉python的一些数组操作。自己真应该多多练习了。<br>&emsp;列表<code>list.count(xx)</code>可以查询里面有xx元素的数量。还有<code>list.index(xx)</code>返回下标。</p><h2 id="利用字典"><a href="#利用字典" class="headerlink" title="利用字典"></a>利用字典</h2><p>&emsp;字典记录，从而节省了查找索引的步骤。</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">twoSum</span><span class="params">(nums, target)</span>:</span></span><br><span class="line">    hashmap=&#123;&#125;</span><br><span class="line">    <span class="keyword">for</span> ind,num <span class="keyword">in</span> enumerate(nums):</span><br><span class="line">        hashmap[num] = ind</span><br><span class="line">    <span class="keyword">for</span> i,num <span class="keyword">in</span> enumerate(nums):</span><br><span class="line">        j = hashmap.get(target - num)</span><br><span class="line">        <span class="keyword">if</span> j <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span> <span class="keyword">and</span> i!=j:</span><br><span class="line">            <span class="keyword">return</span> [i,j]</span><br></pre></td></tr></table></figure><p>升级<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">twoSum</span><span class="params">(nums, target)</span>:</span></span><br><span class="line">    hashmap=&#123;&#125;</span><br><span class="line">    <span class="keyword">for</span> i,num <span class="keyword">in</span> enumerate(nums):</span><br><span class="line">        <span class="keyword">if</span> hashmap.get(target - num) <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:</span><br><span class="line">            <span class="keyword">return</span> [i,hashmap.get(target - num)]</span><br><span class="line">        hashmap[num] = i <span class="comment">#这句不能放在if语句之前，解决list中有重复值或target-num=num的情况</span></span><br></pre></td></tr></table></figure></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 笔记 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 笔记 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>从Theano到Pytorch的迁移</title>
       <link href="/2020/02/27/%E8%BF%81%E7%A7%BB/"/>
       <url>/2020/02/27/%E8%BF%81%E7%A7%BB/</url>
