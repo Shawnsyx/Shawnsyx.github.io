@@ -272,12 +272,12 @@ height:50vh;
                 
                 
                     <div class="post-intro-read">
-                        <span>字数统计: <span class="post-count word-count">2.8k</span>阅读时长: <span class="post-count reading-time">11 min</span></span>
+                        <span>字数统计: <span class="post-count word-count">3k</span>阅读时长: <span class="post-count reading-time">12 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
                     <span class="post-intro-calander iconfont-archer">&#xe676;</span>
-                    <span class="post-intro-time">2020/02/27</span>
+                    <span class="post-intro-time">2020/03/23</span>
                     
                     <span id="busuanzi_container_page_pv" class="busuanzi-pv">
                         <span class="iconfont-archer">&#xe602;</span>
@@ -480,6 +480,13 @@ height:50vh;
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>car = (<span class="string">'red'</span>, <span class="string">'auto'</span>, <span class="number">12</span>, <span class="number">3812.4</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>color, _, _, mileage = car</span><br><span class="line"> </span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>color</span><br><span class="line"><span class="string">'red'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>mileage</span><br><span class="line"><span class="number">3812.4</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>_</span><br><span class="line"><span class="number">12</span></span><br></pre></td></tr></table></figure>
 <p>&emsp;除了用作临时变量之外，“_”是大多数Python REPL中的一个特殊变量，它表示由解释器评估的最近一个表达式的结果。</p>
 <p>&emsp;这样比较方便，可以在一个解释器会话中访问先前计算的结果，或者，你是在动态构建多个对象并与它们交互，无需事先给这些对象分配名字：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="number">20</span> + <span class="number">3</span></span><br><span class="line"><span class="number">23</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>_</span><br><span class="line"><span class="number">23</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(_)</span><br><span class="line"><span class="number">23</span></span><br><span class="line"> </span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>list()</span><br><span class="line">[]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>_.append(<span class="number">1</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>_.append(<span class="number">2</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>_.append(<span class="number">3</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>_</span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br></pre></td></tr></table></figure></p>
+<h1 id="tensorflow-gpu版本使用错误"><a href="#tensorflow-gpu版本使用错误" class="headerlink" title="tensorflow-gpu版本使用错误"></a>tensorflow-gpu版本使用错误</h1><p>&emsp;看到网上一个语言生成模型要使用tensorflow，出了一堆错误。其实是我个人在解释器interpreter里面没有选择对应的tensorflow版本，但乱乱学着别人弄浪费了很多时间。</p>
+<p>&emsp;首先重新安装numpy时出现了</p>
+<blockquote>
+<p>Could not find a version that satisfies the requirement numpy(from versions:) No matching distribution found for numpy</p>
+</blockquote>
+<p>我使用的指令是’ pip install numpy’, 改用 ‘pip3 install numpy’.</p>
+<h1 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h1><h2 id="所有命令都找不到了"><a href="#所有命令都找不到了" class="headerlink" title="所有命令都找不到了"></a>所有命令都找不到了</h2><p>&emsp;解决办法：重新设置环境变量PATH<br>&emsp; <code>export PATH=/usr/sbin:/usr/bin:/usr/local/bin:/usr/local/sbin:/bin:/sbin</code><br>&emsp;再 <code>source /etc/profile</code></p>
 
     </article>
     <!-- license  -->
@@ -489,16 +496,16 @@ height:50vh;
         <li class="next">
             
                 <div class="nextSlogan">Next Post</div>
-                <a href="/2020/03/01/leetcode/" title="leetcode练习题">
-                    <div class="nextTitle">leetcode练习题</div>
+                <a href="/2020/10/19/马克思主义哲学/" title="马克思主义哲学小记">
+                    <div class="nextTitle">马克思主义哲学小记</div>
                 </a>
             
         </li>
         <li class="previous">
             
                 <div class="prevSlogan">Previous Post</div>
-                <a href="/2019/12/08/作文练习/" title="Composition Practice">
-                    <div class="prevTitle">Composition Practice</div>
+                <a href="/2020/03/01/leetcode/" title="leetcode练习题">
+                    <div class="prevTitle">leetcode练习题</div>
                 </a>
             
         </li>
@@ -643,7 +650,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#一-The-aim-of-the-project"><span class="toc-number">2.</span> <span class="toc-text">一 The aim of the project</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#评估方式"><span class="toc-number">2.1.</span> <span class="toc-text">评估方式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Word-Overlap-Metrics"><span class="toc-number">2.1.1.</span> <span class="toc-text">Word-Overlap Metrics</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ADEM"><span class="toc-number">2.1.2.</span> <span class="toc-text">ADEM</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-train-py-中的小细节"><span class="toc-number">3.</span> <span class="toc-text">二  train.py 中的小细节</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#argparse模块使用。"><span class="toc-number">3.1.</span> <span class="toc-text">argparse模块使用。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#os-path模块"><span class="toc-number">3.2.</span> <span class="toc-text">os.path模块</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#eval函数"><span class="toc-number">3.3.</span> <span class="toc-text">eval函数</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-python中的下划线"><span class="toc-number">4.</span> <span class="toc-text">三 python中的下划线</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#单前导下划线-var"><span class="toc-number">4.1.</span> <span class="toc-text">单前导下划线 _var</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#单末尾下划线-var"><span class="toc-number">4.2.</span> <span class="toc-text">单末尾下划线 var_</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#双前导下划线-var"><span class="toc-number">4.3.</span> <span class="toc-text">双前导下划线: __var</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#双前导和双末尾下划线-var"><span class="toc-number">4.4.</span> <span class="toc-text">双前导和双末尾下划线 var</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#单下划线"><span class="toc-number">4.5.</span> <span class="toc-text">单下划线 _</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#一-The-aim-of-the-project"><span class="toc-number">2.</span> <span class="toc-text">一 The aim of the project</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#评估方式"><span class="toc-number">2.1.</span> <span class="toc-text">评估方式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Word-Overlap-Metrics"><span class="toc-number">2.1.1.</span> <span class="toc-text">Word-Overlap Metrics</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ADEM"><span class="toc-number">2.1.2.</span> <span class="toc-text">ADEM</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-train-py-中的小细节"><span class="toc-number">3.</span> <span class="toc-text">二  train.py 中的小细节</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#argparse模块使用。"><span class="toc-number">3.1.</span> <span class="toc-text">argparse模块使用。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#os-path模块"><span class="toc-number">3.2.</span> <span class="toc-text">os.path模块</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#eval函数"><span class="toc-number">3.3.</span> <span class="toc-text">eval函数</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-python中的下划线"><span class="toc-number">4.</span> <span class="toc-text">三 python中的下划线</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#单前导下划线-var"><span class="toc-number">4.1.</span> <span class="toc-text">单前导下划线 _var</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#单末尾下划线-var"><span class="toc-number">4.2.</span> <span class="toc-text">单末尾下划线 var_</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#双前导下划线-var"><span class="toc-number">4.3.</span> <span class="toc-text">双前导下划线: __var</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#双前导和双末尾下划线-var"><span class="toc-number">4.4.</span> <span class="toc-text">双前导和双末尾下划线 var</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#单下划线"><span class="toc-number">4.5.</span> <span class="toc-text">单下划线 _</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#tensorflow-gpu版本使用错误"><span class="toc-number">5.</span> <span class="toc-text">tensorflow-gpu版本使用错误</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Linux"><span class="toc-number">6.</span> <span class="toc-text">Linux</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#所有命令都找不到了"><span class="toc-number">6.1.</span> <span class="toc-text">所有命令都找不到了</span></a></li></ol></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
@@ -850,14 +857,9 @@ top:50vh;
     
     
     
-    
-    
-    
-    
-    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 17
+        Total : 18
         </div>
         <!-- search  -->
         
@@ -867,6 +869,25 @@ top:50vh;
     
     
     
+    
+    <div class="archive-year"> 2020 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/19</span><a class="archive-post-title" href="/2020/10/19/马克思主义哲学/">马克思主义哲学小记</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/23</span><a class="archive-post-title" href="/2020/03/23/迁移/">从Theano到Pytorch的迁移</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
     
     <div class="archive-year"> 2019 </div>
     <ul class="year-list">
@@ -969,24 +990,12 @@ top:50vh;
             <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/10/22/大三实验笔记/">实验笔记</a>
         </li>
     
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> Invalid date </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2020/02/27/迁移/">从Theano到Pytorch的迁移</a>
-        </li>
-    
     </ul></div>
   </div>
         <div class="sidebar-panel-tags">
     <div class="sidebar-tags-name">
+    
+        <span class="sidebar-tag-name" data-tags="小感"><span class="iconfont-archer">&#xe606;</span>小感</span>
     
         <span class="sidebar-tag-name" data-tags="笔记"><span class="iconfont-archer">&#xe606;</span>笔记</span>
     
@@ -997,8 +1006,6 @@ top:50vh;
         <span class="sidebar-tag-name" data-tags="竹林深处"><span class="iconfont-archer">&#xe606;</span>竹林深处</span>
     
         <span class="sidebar-tag-name" data-tags="随笔"><span class="iconfont-archer">&#xe606;</span>随笔</span>
-    
-        <span class="sidebar-tag-name" data-tags="小感"><span class="iconfont-archer">&#xe606;</span>小感</span>
     
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
@@ -1040,6 +1047,8 @@ jsonContent:
         <span class="sidebar-category-name" data-categories="英语"><span class="iconfont-archer">&#xe60a;</span>英语</span>
     
         <span class="sidebar-category-name" data-categories="竹林深处"><span class="iconfont-archer">&#xe60a;</span>竹林深处</span>
+    
+        <span class="sidebar-category-name" data-categories="感想"><span class="iconfont-archer">&#xe60a;</span>感想</span>
     
     </div>
     <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
